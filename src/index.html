@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include("html/components/head.html",{
+"title":"Главная"})
+
+<body>
+	@@include('html/components/loading_4.html')
+	<div class="wrapper">
+		@@include("html/page-block/header.html")
+		<main class="page">
+			<div class="page__container">
+				<div class="page__content">
+					<aside class="page__sidebar">
+						@@include("html/page-block/page-sidebar.html")
+						@@include("html/page-block/page-news.html")
+					</aside>
+					<div class="page__main-content">
+						<!-----------------Checkbox---------------------->
+						@@include("html/page-block/page-search.html")
+						<!------------------Slider----------------------->
+						@@include("html/page-block/page-mainslide.html")
+						<!------------------Products----------------------->
+						@@include("html/page-block/page-products.html")
+					</div>
+				</div>
+			</div>
+			<div class="page__brands brands-slide">
+				@@include("html/page-block/page-brands.html")
+			</div>
+			<section class="page__text text-block">
+				@@include("html/page-block/page-text.html")
+			</section>
+			<section class="page__info block-info">
+				@@include("html/page-block/page-info.html")
+			</section>
+		</main>
+		@@include("html/page-block/footer.html")
+	</div>
+</body>
+
+</html>

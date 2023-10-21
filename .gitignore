@@ -1,0 +1,14 @@
+.settings/
+/.idea
+.idea
+/.vscode
+.vscode
+node_modules
+gulpfile.js
+Applications
+Temp
+Templates
+desktop.ini
+package.json
+package-lock.json
+.eslintrc.js

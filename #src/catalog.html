@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include("html/components/head-catalog.html",{
+"title":"Каталог товара"})
+
+<body>
+	@@include('html/components/loading_4.html')
+	<div class="wrapper">
+		@@include("html/page-block/header.html")
+		<main class="page">
+			<div class="page__container _container">
+				<div class="page__content">
+					<aside class="page__sidebar">
+						@@include("html/page-block/page-sidebar.html")
+						<form action="#" class="page__filter filter">
+							@@include("html/page-block/page-filter.html")
+						</form>
+					</aside>
+					<div class="page__main-content">
+						<!-----------------SerchCheckbox------------------->
+						@@include("html/page-block/page-search.html")
+						<nav class="page__breadcrumbs breadcrumbs">
+							<ul class="breadcrumbs__list">
+								<li><a href="index.html" class="breadcrumbs__link">Главная</a></li>
+								<li class="icon-angle-double-right"><span class="breadcrumbs__item">Каталог товара</span></li>
+							</ul>
+						</nav>
+						<!------------------Catalog----------------------->
+						@@include("html/page-block/page-catalog.html")
+					</div>
+				</div>
+			</div>
+			<section class="page__info block-info">
+				@@include("html/page-block/page-info.html")
+			</section>
+		</main>
+		@@include("html/page-block/footer.html")
+	</div>
+</body>
+
+</html>
