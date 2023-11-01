@@ -1,214 +1,308 @@
-<div class="cart">
-
-	<h1 class="cart__title">Оформление заказа</h1>
-
-	<div class="cart__place-order order-place">
-		<div class="order-place__tabs tab-buttom">
-			<div class="tab-button__item _tablinks">Быстрый заказ</div>
-			<div class="tab-button__item ">Курьером по москве и мо</div>
-			<div class="tab-button__item _tablinks _active">Доставка в регионы</div>
-		</div>
-		<div class="order-place__quick-order quick-order _tabcontent">
-
-		</div>
-		<div class="order-place__regions-delivery regions-delivery _tabcontent _show">
-			<div class="regions-delivery__column">
-				Отправка товара производится только после 100% оплаты
-				товара. Стоимость доставки возможно оплатить при
-				получении заказа.
-
-				Доставка в регионы осуществляется EMS Почтой России
-				(в течение 5-14 дней) и курьерской службой DPD (в течение
-				3-5 дней) с момента передачи заказа в службу доставки.
-				Стоимость зависит от веса заказа и расстояния. В некоторые
-				регионы доставка возможна только посредством EMS Почты
-				России, способ доставки уточняйте у оператора при
-				оформлении заказа*.
-
-				* Интернет-магазин не несет ответственности за задержку
-				доставки заказа, связанную с работой курьерских служб DPD
-				и EMS Почты России.
+<div class="cart-page">
+	<form action="" method="get" class="cart-page__place-order order-place">
+		<h1 class="cart-page__title">Оформление заказа</h1>
+		<div class="order-place__content">
+			<div class="order-place__tabs tab-button">
+				<div class="tab-button__item _tablinks">Быстрый заказ</div>
+				<div class="tab-button__item _tablinks">Курьером по москве и мо</div>
+				<div class="tab-button__item _tablinks _active">Доставка в регионы</div>
 			</div>
-			<div class="regions-delivery__column">
-				Отправка товара производится только после 100% оплаты
-				товара. Стоимость доставки возможно оплатить при
-				получении заказа.
-
-				Доставка в регионы осуществляется EMS Почтой России
-				(в течение 5-14 дней) и курьерской службой DPD (в течение
-				3-5 дней) с момента передачи заказа в службу доставки.
-				Стоимость зависит от веса заказа и расстояния. В некоторые
-				регионы доставка возможна только посредством EMS Почты
-				России, способ доставки уточняйте у оператора при
-				оформлении заказа*.
-
-				* Интернет-магазин не несет ответственности за задержку
-				доставки заказа, связанную с работой курьерских служб DPD
-				и EMS Почты России.
-			</div>
-			<div class="regions-delivery__column">
-				<p><span>*</span> Поля, обязательные для заполнения</p>
-				<p>
-					Отправка товара производится только после 100% оплаты
-					товара. Стоимость доставки возможно оплатить при
-					получении заказа.
-				</p>
-
-				<p>
-					Доставка в регионы осуществляется EMS Почтой России
-					(в течение 5-14 дней) и курьерской службой DPD (в течение
-					3-5 дней) с момента передачи заказа в службу доставки.
-					Стоимость зависит от веса заказа и расстояния. В некоторые
-					регионы доставка возможна только посредством EMS Почты
-					России, способ доставки уточняйте у оператора при
-					оформлении заказа*.
-				</p>
-
-				<p>
-					* Интернет-магазин не несет ответственности за задержку
-					доставки заказа, связанную с работой курьерских служб DPD
-					и EMS Почты России.
-				</p>
-			</div>
-
-		</div>
-
-	</div>
-
-
-	<div class="cart__shopping shopping-cart">
-		<h1 class="cart__title">Ваш заказ</h1>
-		<div class="shopping-cart__items">
-			<div class="shopping-cart__item" data-quantity>
-				<div class="shopping-cart__column">
-					<div class="shopping-cart__image">
-						<img src="img/products/product_1.png" alt="Беговая дорожка">
-					</div>
-					<div class="shopping-cart__info">
-						<a href="" class="shopping-cart__title">
-							<p>BH Fitness F1 G6414V</p><span>Беговая дорожка</span>
-						</a>
-						<div class="card-name__price">
-							<div class="card-name__old-price">
+			<div class="order-place__quick-order quick-order _tabcontent">
+				<div class="quick-order__column">
+					<div class="quick-order__row">
+						<div class="quick-order__line">
+							<div class="quick-order__lebel">Имя:<span> *</span>
 							</div>
-							<div class="card-name__new-price product-prices">
-								<p>10 000<i class="icon-ruble"></i></p>
+							<div class="quick-order__input">
+								<input class="input" autocomplete="off" type="text" name="form[]" data-error="Ошибка" data value="">
 							</div>
 						</div>
+						<div class="quick-order__line">
+							<div class="quick-order__lebel">Моб. телефон:<span> *</span>
+							</div>
+							<div class="quick-order__input">
+								<input class="input" autocomplete="off" type="text" name="form[]" data-error="Ошибка" data value="">
+							</div>
+						</div>
+						<div class="quick-order__line">
+							<div class="quick-order__lebel">Ваш E-mail:</div>
+							<div class="quick-order__input">
+								<input class="input" autocomplete="off" type="text" name="form[]" data-error="Ошибка" data value="">
+							</div>
+						</div>
+					</div>
+					<label class="quick-order__checkbox checkbox">
+						<input class="checkbox__input" data-error="Ошибка" name="form[]" type="checkbox" value="1">
+						<div class="checkbox__text"><span>Подписаться на новости и скидки</span></div>
+					</label>
+				</div>
+				<div class="quick-order__column">
+					<div class="quick-order__text">
+						<p><span>*</span> Поля, обязательные для заполнения</p>
+						<p>
+							Отправка товара производится только после 100% оплаты
+							товара. Стоимость доставки возможно оплатить при
+							получении заказа.
+						</p>
+						<p>
+							* Интернет-магазин не несет ответственности за задержку
+							доставки заказа, связанную с работой курьерских служб DPD
+							и EMS Почты России.
+						</p>
 					</div>
 				</div>
-				<div class="shopping-cart__column">
-					<div class="shopping-cart__row quantity">
-						<div class="quantity__buttom quantity-remove _arrow _arrow_prev _disabled"></div>
-						<div class="quantity__input">
-							<input class="input" value="1" placeholder="<+>">
-						</div>
-						<div class="quantity__buttom quantity-add _arrow _arrow_next"></div>
-					</div>
-					<div class="shopping-cart__row">
-						<div class="card-name__price">
-							<div class="card-name__old-price">
+			</div>
+			<div class="order-place__quick-order courier-order _tabcontent">
+				<div class="quick-order__column">
+					<div class="quick-order__row">
+						<div class="quick-order__line">
+							<div class="quick-order__lebel">Имя:<span> *</span>
 							</div>
-							<div class="card-name__new-price">
-								<span>Всего:</span>
-								<div class="card-name__value-price">
-									<p class="card-name__quantity-price"></p><i class="icon-ruble"></i>
+							<div class="quick-order__input">
+								<input class="input" autocomplete="off" type="text" name="form[]" data-error="Ошибка" data value="">
+							</div>
+						</div>
+						<div class="quick-order__line">
+							<div class="quick-order__lebel">Моб. телефон:<span> *</span>
+							</div>
+							<div class="quick-order__input">
+								<input class="input" autocomplete="off" type="text" name="form[]" data-error="Ошибка" data value="">
+							</div>
+						</div>
+						<div class="quick-order__line">
+							<div class="quick-order__lebel">Ваш E-mail:</div>
+							<div class="quick-order__input">
+								<input class="input" autocomplete="off" type="text" name="form[]" data-error="Ошибка" data value="">
+							</div>
+						</div>
+						<div class="quick-order__line">
+							<div class="quick-order__lebel">Комментарии:</div>
+							<div class="quick-order__input">
+								<textarea name="form[]" class="quick-order__comments" cols="30" rows="10"
+									placeholder="Enter your message..."></textarea>
+							</div>
+						</div>
+					</div>
+					<label class="quick-order__checkbox checkbox">
+						<input class="checkbox__input" data-error="Ошибка" name="form[]" type="checkbox" value="1">
+						<div class="checkbox__text"><span>Подписаться на новости и скидки</span></div>
+					</label>
+				</div>
+				<div class="quick-order__column">
+					<div class="quick-order__text">
+						<p><span>*</span> Поля, обязательные для заполнения</p>
+						<p>
+							Отправка товара производится только после 100% оплаты
+							товара. Стоимость доставки возможно оплатить при
+							получении заказа.
+						</p>
+						<p>
+							* Интернет-магазин не несет ответственности за задержку
+							доставки заказа, связанную с работой курьерских служб DPD
+							и EMS Почты России.
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="order-place__quick-order regions-delivery _tabcontent _show">
+				<div class="quick-order__column">
+					<div class="quick-order__row">
+						<div class="quick-order__line">
+							<div class="quick-order__lebel">Фамилия:<span> *</span>
+							</div>
+							<div class="quick-order__input">
+								<input class="input" autocomplete="off" type="text" name="form[]" data-error="Ошибка" data value="">
+							</div>
+						</div>
+						<div class="quick-order__line">
+							<div class="quick-order__lebel">Имя:<span> *</span>
+							</div>
+							<div class="quick-order__input">
+								<input class="input" autocomplete="off" type="text" name="form[]" data-error="Ошибка" data value="">
+							</div>
+						</div>
+						<div class="quick-order__line">
+							<div class="quick-order__lebel">Отчество:<span> *</span>
+							</div>
+							<div class="quick-order__input">
+								<input class="input" autocomplete="off" type="text" name="form[]" data-error="Ошибка" data value="">
+							</div>
+						</div>
+						<div class="quick-order__line">
+							<div class="quick-order__lebel">Моб. телефон:<span> *</span>
+							</div>
+							<div class="quick-order__input">
+								<input class="input" autocomplete="off" type="text" name="form[]" data-error="Ошибка" data value="">
+							</div>
+						</div>
+						<div class="quick-order__line">
+							<div class="quick-order__lebel">Ваш E-mail:</div>
+							<div class="quick-order__input">
+								<input class="input" autocomplete="off" type="text" name="form[]" data-error="Ошибка" data value="">
+							</div>
+						</div>
+						<div class="quick-order__line">
+							<div class="quick-order__lebel">Способ оплаты:</div>
+							<div class="quick-order__input dropdown" data-select>
+								<div class="dropdown__box-button">
+									<input type="button" class="dropdown__button input" type="text" name="form[]"
+										value="через Сбербанк"><i class="icon-arrow_select"></i>
+								</div>
+								<ul class="dropdown__list _collapse">
+									<li class="dropdown__list-item _selected" value="Sberbank">через Сбербанк</li>
+									<li class="dropdown__list-item" value="UnicreditBank">через Юникредит Банк</li>
+									<li class="dropdown__list-item" value="Raiffeisenbank">через Райффайзенбанк</li>
+									<li class="dropdown__list-item" value="Rosbank">через Росбанк</li>
+									<li class="dropdown__list-item" value="VTB">через ВТБ</li>
+									<li class="dropdown__list-item" value="Alfa-Bank">через Альфа-Банк</li>
+									<li class="dropdown__list-item" value="Gazprombank">через Газпромбанк</li>
+								</ul>
+							</div>
+						</div>
+						<div class="quick-order__line">
+							<div class="quick-order__lebel">Индекс:<span> *</span>
+							</div>
+							<div class="quick-order__input">
+								<input class="input" autocomplete="off" type="text" name="form[]" data-error="Ошибка" data value="">
+							</div>
+						</div>
+						<div class="quick-order__line">
+							<div class="quick-order__lebel">Город:<span> *</span>
+							</div>
+							<div class="quick-order__input">
+								<input class="input" autocomplete="off" type="text" name="form[]" data-error="Ошибка" data value="">
+							</div>
+						</div>
+						<div class="quick-order__line">
+							<div class="quick-order__lebel">Адрес доставки:<span> *</span>
+							</div>
+							<div class="quick-order__input">
+								<input class="input" autocomplete="off" type="text" name="form[]" data-error="Ошибка" data value="">
+							</div>
+						</div>
+						<div class="quick-order__line">
+							<div class="quick-order__lebel">Комментарии:</div>
+							<div class="quick-order__input">
+								<textarea name="form[]" class="quick-order__comments" placeholder="Enter your message..."></textarea>
+							</div>
+						</div>
+					</div>
+					<label class="quick-order__checkbox checkbox">
+						<input class="checkbox__input" data-error="Ошибка" name="form[]" type="checkbox" value="1">
+						<div class="checkbox__text"><span>Подписаться на новости и скидки</span></div>
+					</label>
+				</div>
+				<div class="quick-order__column">
+					<div class="quick-order__text">
+						<p><span>*</span> Поля, обязательные для заполнения</p>
+						<p>
+							Отправка товара производится только после 100% оплатытовара. Стоимость доставки возможно оплатить при
+							получении заказа.
+						</p>
+						<p>
+							Доставка в регионы осуществляется EMS Почтой России (в течение 5-14 дней) и курьерской службой DPD (в
+							течение 3-5 дней) с момента передачи заказа в службу доставки. Стоимость зависит от веса заказа и
+							расстояния. В некоторые регионы доставка возможна только посредством EMS Почты России, способ доставки
+							уточняйте у оператора при оформлении заказа*.
+						</p>
+						<p>
+							* Интернет-магазин не несет ответственности за задержку доставки заказа, связанную с работой курьерских
+							служб DPD и EMS Почты России.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="cart-page__shopping shopping-cart">
+			<h1 class="cart-page__title">Ваш заказ</h1>
+			<div class="shopping-cart__items">
+				<div class="shopping-cart__item" data-quantity>
+					<div class="shopping-cart__column">
+						<div class="shopping-cart__image">
+							<img src="img/products/product_1.png" alt="Беговая дорожка">
+						</div>
+						<div class="shopping-cart__info">
+							<a href="" class="shopping-cart__title">
+								<p>BH Fitness F1 G6414V</p><span>Беговая дорожка</span>
+							</a>
+							<div class="card-name__price">
+								<div class="card-name__new-price product-prices">
+									<p>64 990<i class="icon-ruble"></i></p>
 								</div>
 							</div>
 						</div>
-						<button type="submit" class="shopping-cart__reset" type="button"></button>
 					</div>
-				</div>
-			</div>
-			<div class="shopping-cart__item" data-quantity>
-				<div class="shopping-cart__column">
-					<div class="shopping-cart__image">
-						<img src="img/products/product_1.png" alt="Беговая дорожка">
-					</div>
-					<div class="shopping-cart__info">
-						<a href="" class="shopping-cart__title">
-							<p>BH Fitness F1 G6414V</p><span>Беговая дорожка</span>
-						</a>
-						<div class="card-name__price">
-							<div class="card-name__old-price">
+					<div class="shopping-cart__column">
+						<div class="shopping-cart__row quantity">
+							<div class="quantity__buttom quantity-remove _arrow _arrow_prev _disabled"></div>
+							<div class="quantity__input">
+								<input type="text" name="form[]" class="input" value="1" placeholder="<+>" autocomplete="off">
 							</div>
-							<div class="card-name__new-price product-prices">
-								<p>20 000<i class="icon-ruble"></i></p>
-							</div>
+							<div class="quantity__buttom quantity-add _arrow _arrow_next"></div>
 						</div>
-					</div>
-				</div>
-				<div class="shopping-cart__column">
-					<div class="shopping-cart__row quantity">
-						<div class="quantity__buttom quantity-remove _arrow _arrow_prev _disabled"></div>
-						<div class="quantity__input">
-							<input class="input" value="1" placeholder="<+>">
-						</div>
-						<div class=" quantity__buttom quantity-add _arrow _arrow_next">
-						</div>
-					</div>
-					<div class="shopping-cart__row">
-						<div class="card-name__price">
-							<div class="card-name__old-price">
-							</div>
-							<div class="card-name__new-price">
-								<span>Всего:</span>
-								<div class="card-name__value-price">
-									<p class="card-name__quantity-price"></p><i class="icon-ruble"></i>
-								</div>
-							</div>
-						</div>
-						<button type="submit" class="shopping-cart__reset" type="button"></button>
-					</div>
-				</div>
-			</div>
-			<div class="shopping-cart__item" data-quantity>
-				<div class="shopping-cart__column">
-					<div class="shopping-cart__image">
-						<img src="img/products/product_1.png" alt="Беговая дорожка">
-					</div>
-					<div class="shopping-cart__info card-name">
-						<a href="" class="shopping-cart__title">
-							<p>BH Fitness F1 G6414V</p><span>Беговая дорожка</span>
-						</a>
-						<div class="card-name__price">
-							<div class="card-name__old-price">
-							</div>
-							<div class="card-name__new-price product-prices">
-								<p>30 000<i class="icon-ruble"></i></p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="shopping-cart__column">
-					<div class="shopping-cart__row quantity">
-						<div class="quantity__buttom quantity-remove _arrow _arrow_prev _disabled"></div>
-						<div class="quantity__input">
-							<input class="input" value="1" placeholder="<+>">
-						</div>
-						<div class="quantity__buttom quantity-add _arrow _arrow_next"></div>
-					</div>
-					<div class="shopping-cart__row">
-						<div class="card-name__price">
-							<div class="card-name__old-price">
-							</div>
-							<div class="card-name__new-price">
-								<span>Всего:</span>
-								<div class="card-name__value-price">
-									<p class="card-name__quantity-price"></p><i class="icon-ruble"></i>
-								</div>
-							</div>
-						</div>
-						<button type="submit" class="shopping-cart__reset" type="button"></button>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="shopping-cart__total">
-			<span>Итого:</span>
-			<div class="input-total"></div>
-			<i class="icon-ruble"></i>
-		</div>
-	</div>
+						<div class="shopping-cart__row">
+							<div class="card-name__price">
 
+								<div class="card-name__new-price">
+									<span>Всего:</span>
+									<div class="card-name__value-price">
+										<p class="card-name__quantity-price"><i class="icon-ruble"></i></p>
+									</div>
+								</div>
+							</div>
+							<button type="submit" class="shopping-cart__reset" type="button"></button>
+						</div>
+					</div>
+				</div>
+				<div class="shopping-cart__item" data-quantity>
+					<div class="shopping-cart__column">
+						<div class="shopping-cart__image">
+							<img src="img/products/product_1.png" alt="Беговая дорожка">
+						</div>
+						<div class="shopping-cart__info">
+							<a href="" class="shopping-cart__title">
+								<p>BH Fitness F1 G6414V</p><span>Беговая дорожка</span>
+							</a>
+							<div class="card-name__price">
+
+								<div class="card-name__new-price product-prices">
+									<p>64 990<i class="icon-ruble"></i></p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="shopping-cart__column">
+						<div class="shopping-cart__row quantity">
+							<div class="quantity__buttom quantity-remove _arrow _arrow_prev _disabled"></div>
+							<div class="quantity__input">
+								<input type="text" name="form[]" class="input" value="1" placeholder="<+>" autocomplete="off">
+							</div>
+							<div class="quantity__buttom quantity-add _arrow _arrow_next">
+							</div>
+						</div>
+						<div class="shopping-cart__row">
+							<div class="card-name__price">
+
+								<div class="card-name__new-price">
+									<span>Всего:</span>
+									<div class="card-name__value-price">
+										<p class="card-name__quantity-price"><i class="icon-ruble"></i></p>
+									</div>
+								</div>
+							</div>
+							<button type="submit" class="shopping-cart__reset" type="button"></button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="shopping-cart__footer">
+				<span>Итого:</span>
+				<div class="input-total"><i class="icon-ruble"></i></div>
+
+			</div>
+			<div class="shopping-cart__button">
+				<button type="submit" class="button">Оформить заказ</button>
+			</div>
+		</div>
+	</form>
 </div>

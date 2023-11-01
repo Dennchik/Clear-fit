@@ -328,7 +328,7 @@
 		display: grid;
 		align-items: center;
 		justify-content: space-between;
-		padding: 10px 15px 0;
+		padding: 10px 5px;
 		white-space: nowrap;
 		color: $textColor;
 		gap: 5px;
@@ -433,10 +433,7 @@
 		}
 		@include _490 {
 			font-size: 11px;
-			grid-template-columns: 1fr 55px;
-		}
-		@include _375 {
-			grid-template-columns: 1fr 45px;
+			grid-template-columns: 1fr 65px;
 		}
 	}
 }

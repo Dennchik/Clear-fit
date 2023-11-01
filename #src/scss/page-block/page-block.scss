@@ -108,13 +108,4 @@
 			margin-bottom: 15px;
 		}
 	}
-
-	// .page__breadcrumbs
-	&__breadcrumbs {
-		margin: 10px 0 20px;
-		scrollbar-width: none;
-		@include _920 {
-			margin-bottom: 10px;
-		}
-	}
 }

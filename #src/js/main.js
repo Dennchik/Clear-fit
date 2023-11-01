@@ -8,7 +8,7 @@ document.querySelector('.burger-menu').onclick = () => {
 	page.classList.toggle('_fx');
 };
 // * ---------[Выпадающий блок 'Side Bar Menu (JS)' & 'Search JS']--------------
-const items = document.querySelectorAll(`._slideToggle`);
+const items = document.querySelectorAll('._slideToggle');
 items.forEach((item) => {
 	const trigger = item.querySelector('._trigger-click');
 	trigger.addEventListener('click', () => {
@@ -91,4 +91,3 @@ for (let i = 0; i < checkboxCategories.length; i++) {
 		}
 	});
 };
-@@include('modules/clock.js', {})

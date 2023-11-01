@@ -8,7 +8,7 @@ document.querySelector('.burger-menu').onclick = () => {
 	page.classList.toggle('_fx');
 };
 // * ---------[Выпадающий блок 'Side Bar Menu (JS)' & 'Search JS']--------------
-const items = document.querySelectorAll(`._slideToggle`);
+const items = document.querySelectorAll('._slideToggle');
 items.forEach((item) => {
 	const trigger = item.querySelector('._trigger-click');
 	trigger.addEventListener('click', () => {
@@ -91,11 +91,4 @@ for (let i = 0; i < checkboxCategories.length; i++) {
 		}
 	});
 };
-setInterval(() => {
-	const date = new Date();
-	const clock = document.getElementById("clock");
-	clock.innerHTML =
-		`${date.getHours()} : ${date.getMinutes()}  ` + `( ${date.getSeconds()} )`;
-}, 1000);
-
 //# sourceMappingURL=main.js.map

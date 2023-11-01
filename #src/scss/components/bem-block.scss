@@ -16,6 +16,14 @@
 		display: none;
 	}
 }
+//*  ------------------------ [Breadcrumbs] ------------------------------------
+.breadcrumbs {
+	margin: 10px 0 20px;
+	scrollbar-width: none;
+	@include _920 {
+		margin-bottom: 10px;
+	}
+}
 //*  --------------------------- [Arrow] ---------------------------------------
 ._arrow {
 	width: 33px;
@@ -34,9 +42,10 @@
 		}
 	}
 }
-
-._arrow_prev {
-	//stile
+.quantity-remove {
+	&._disabled {
+		opacity: 0.5;
+	}
 }
 
 ._arrow_next {
@@ -93,6 +102,7 @@
 	// .card-name__new-price
 	&__new-price {
 		@include flex-align-center-justify-space-between;
+		flex-direction: row;
 		a {
 			&.icon-cart-circle {
 				white-space: nowrap;
@@ -203,7 +213,7 @@
 	width: 100%;
 	border-radius: 0 !important;
 	border: 1px solid #dadada;
-	color: #999999;
+	color: #333;
 	&._focus {
 	}
 
@@ -243,39 +253,28 @@ textarea.input {
 //* ------------------------- [Class _ibg] -------------------------------------
 ._ibg {
 	position: relative;
-}
-
-._ibg img {
-	position: absolute;
-	top: 0;
-	left: 0;
-
-	width: 100%;
-	height: 100%;
-	object-fit: contain;
-}
-
-[class*=' _img'] {
-	width: 100%;
-	max-width: 100%;
-	height: 100%;
-	min-height: 0;
-	vertical-align: middle;
-	object-fit: cover;
-}
-//* -------------------------- [Class _img] ------------------------------------
-._img {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-
 	img {
+		position: absolute;
 		top: 0;
+		left: 0;
 		width: 100%;
 		height: 100%;
 		object-fit: contain;
+	}
+}
+//* -------------------------- [Class _img] ------------------------------------
+[class*=' _img'] {
+	img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		min-width: 100%;
+		height: 100%;
+		vertical-align: middle;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
 	}
 }
 //* ------------------ [Clip-Path inset() modifcator] --------------------------
