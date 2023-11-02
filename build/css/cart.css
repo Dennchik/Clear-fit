@@ -2062,6 +2062,7 @@ button {
 }
 .shopping-cart__button {
   text-align: right;
+  padding-right: 1.5rem;
 }
 .shopping-cart__button .button {
   padding: 1rem 2rem;
