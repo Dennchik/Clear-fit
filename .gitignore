@@ -12,6 +12,8 @@ gulpfile.js
 Applications
 Temp
 Templates
+#temp
+*#temp
 desktop.ini
 package.json
 package-lock.json
