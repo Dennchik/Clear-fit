@@ -1,6 +1,11 @@
+.dropdown > ._collapse:not(._show) {
+	display: none;
+}
+
 .order-place__content > ._tabcontent:not(._show) {
 	display: none;
 }
+
 .cart-page {
 	// .cart-page__place-order
 
@@ -25,6 +30,7 @@
 		margin-bottom: 3rem;
 	}
 }
+
 .order-place {
 	// .order-place__content
 	&__content {
@@ -61,6 +67,7 @@
 		text-transform: uppercase;
 		color: #72c9d4;
 		text-decoration: underline dashed;
+		white-space: nowrap;
 		&._active {
 			background-color: #72c9d4;
 			color: #fff;
@@ -69,16 +76,32 @@
 		@include _375 {
 			font-size: 1.2rem;
 		}
+		@include _690 {
+			padding: 1rem;
+		}
+		@include _min-690 {
+			&:not(:last-child) {
+				margin-right: 3.5rem;
+			}
+		}
 	}
 }
 
 .quick-order {
 	// .quick-order__column
 	&__column {
-		padding-right: 4rem;
+		flex: 1 1 100%;
 		display: flex;
 		flex-direction: column;
-		align-items: flex-end;
+		@include _min-690 {
+			&:not(:last-child) {
+				padding-right: 4rem;
+			}
+		}
+
+		@include _375-690 {
+			flex: 1 1 100%;
+		}
 	}
 	// .quick-order___row
 	&__row {
@@ -123,6 +146,7 @@
 		span {
 			color: #f68038;
 		}
+
 		@include _425 {
 			margin: 0 1rem;
 		}
@@ -130,14 +154,19 @@
 
 	// .quick-order__input
 	&__input {
+		width: 21.6rem;
+		@include _375-690 {
+			width: 100%;
+		}
+		@include _375 {
+			width: 19.5rem;
+		}
 		input {
-			padding-left: 1rem;
-			width: 21.6rem;
+			display: block;
+			width: 100%;
 			height: 3.1rem;
+			padding-left: 1rem;
 			transition: all 0.3s ease-in-out;
-			@include _375 {
-				width: 19.5rem;
-			}
 			&:focus {
 				box-shadow: 0px 0px 0px 2px rgba(115, 201, 212, 0.5);
 			}
@@ -209,43 +238,45 @@
 		&:focus {
 			box-shadow: 0px 0px 0px 2px rgba(115, 201, 212, 0.5);
 		}
-
+		@include _320-690 {
+			width: 100%;
+		}
 		@include _375 {
 			width: 19.5rem;
 		}
 	}
 }
-.dropdown > ._collapse:not(._show) {
-	display: none;
-}
 
 .dropdown {
 	position: relative;
+
+	&._active-collapse {
+		.icon-arrow_select {
+			transform: rotate(-573deg);
+			right: 1%;
+			color: #f68038;
+			top: 12%;
+		}
+	}
+
 	// .dropdown__box-button
 	&__box-button {
 		position: relative;
-
+		@include flex-align-center;
 		.icon-arrow_select {
+			position: absolute;
+			display: block;
+			right: 0;
 			color: #333;
-			font-size: 20px;
-			&::before {
-				transition: all 0.3s ease-in-out;
-				position: absolute;
-				right: 2%;
-				top: 22%;
-				transform: rotate(-32deg);
-			}
+			font-size: 2rem;
+			transform: rotate(-34deg);
+			transition: all 0.3s ease-in-out;
+		}
+		input {
+			font-size: 1.4rem;
 		}
 	}
-	&._active-collapse {
-		.icon-arrow_select {
-			&::before {
-				top: 25%;
-				transform: rotate(-572deg);
-				color: #f68038;
-			}
-		}
-	}
+
 	// .dropdown__button
 	&__button {
 		cursor: pointer;
@@ -263,11 +294,12 @@
 	// .dropdown__list
 	&__list {
 		position: absolute;
-		width: 21.6rem;
+		width: 100%;
 		margin-top: 2px;
 		background: #fff;
 		color: #333;
 		border: 1px solid #dadada;
+		font-size: 1.4rem;
 
 		@include _375 {
 			width: 19.5rem;
