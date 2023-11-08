@@ -18,21 +18,6 @@
 // todo ------------------------- Plugins --------------------------------------
 @import 'slide/swiper';
 // todo ------------------------- Wrapper --------------------------------------
-[class^='icon-']::before,
-[class*=' icon-']::before {
-	font-family: '#{$icomoon-font-family}' !important;
-	speak: never;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
-
-	/* Better Font Rendering =========== */
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-// todo ------------------------- Wrapper --------------------------------------
 // #region
 .wrapper {
 	max-width: $maxWidth;

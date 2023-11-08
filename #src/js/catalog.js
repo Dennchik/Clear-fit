@@ -1,4 +1,3 @@
-@@include('libraries/ItcCustomSelect.js', {})
 @@include('libraries/wNumb.js', {})
 @@include('libraries/nouislider.js', {})
 @@include('libraries/init-swiper.js', {})

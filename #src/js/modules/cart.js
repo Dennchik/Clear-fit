@@ -89,23 +89,24 @@ function _totalSum() {
 	});
 }
 _totalSum();
-//* --------------------------------[Tabs]--------------------------------------
-const tablinks = document.querySelectorAll('._tablinks');
-const tabcontents = document.querySelectorAll('._tabcontent');
+//* ----------------------------[Shift-Tabs]-----------------------------------
+const tablinks = document.querySelectorAll('.tab-button__item');
+const tabcontents = document.querySelectorAll('.order-place__quick-order');
 for (const i in tablinks) {
 	const tablink = tablinks[i];
 	const tabcontent = tabcontents[i];
 	if (Object.hasOwnProperty.call(tabcontents, i)) {
 		tablink.addEventListener('click', () => {
-			const view_tablink = document.querySelector('._active');
-			const view_content = document.querySelector('._show');
+			const view_tablink = document.querySelector('.tab-button__item._active');
+			const view_content = document.querySelector('.order-place__quick-order._active');
+			console.log(view_content);
 			_toggleLink(view_tablink);
 			if (view_tablink && view_tablink !== tabcontent) {
 				_toggleLink(tablink);
 			}
-			_toggleShow(view_content);
+			_toggleLink(view_content);
 			if (view_content && view_content !== tablink) {
-				_toggleShow(tabcontent);
+				_toggleLink(tabcontent);
 			}
 		});
 	}
@@ -117,144 +118,148 @@ const _toggleLink = (el) => {
 		el.classList.add('_active');
 	}
 };
-const _toggleShow = (el) => {
-	if (el.classList.contains('_show')) {
-		el.classList.remove('_show');
-	} else {
-		el.classList.add('_show');
-	}
-};
-///* ------------------------------ [Select]-------------------------------------
-const itsSelect = document.querySelectorAll('[data-select]');
-if (itsSelect) {
-	itsSelect.forEach(select => {
-		const dropDownBtn = select.querySelector('.dropdown__button');
-		const dropDownBox = select.querySelector('.dropdown__box-button');
-		const dropDownList = select.querySelector('.dropdown__list');
-		const listItems = dropDownList.querySelectorAll('.dropdown__list-item');
-
-		dropDownBox.addEventListener('click', function (el) {
-			target = el.target;
-			if (target.closest('.dropdown__box-button')) {
-				target = el.target.closest('.dropdown__box-button').nextElementSibling.querySelector('._selected');
-				dropDownBtn.value = target.innerText;
-			}
-		});
-
-		let start = listItems[0];
-		if (listItems.length !== 0) {
-			[].forEach.call(listItems, function (list) {
-				list.addEventListener('click', function () {
-					start = this;
-					start.focus();
-					dropDownBtn.value = list.innerText;
-
-					const el_selected = dropDownList.querySelector('._selected');
-					_listItem(list);
-					if (el_selected && el_selected !== list) {
-						_listItem(el_selected);
-					} else {
-						list.classList.add('_selected');
+//* ------------------------------ [Select]-------------------------------------
+document.querySelectorAll('[data-select]').forEach(function (selectGroup) {
+	const itsSelects = selectGroup.querySelectorAll('.select');
+	if (itsSelects) {
+		itsSelects.forEach(itsSelect => {
+			const listItems = itsSelect.querySelectorAll('.select__list-item');
+			const selectButton = itsSelect.querySelector('.select__button');
+			itsSelect.addEventListener('click', function (el) {
+				if (el.target.closest('.select__button')) {
+					const opened_select = document.querySelector('._active-collapse');
+					_toggleOpen(itsSelect);
+					if (el.target.closest('.select__box-button')) {
+						start = el.target.closest('.select__box-button').nextElementSibling.querySelector('._selected');
 					}
+					if (!el.target.closest('.select').classList.contains('_active-collapse')) {
+						selectButton.blur();
+					}
+					if (opened_select && opened_select !== itsSelect) {
+						_toggleOpen(opened_select);
+					}
+				}
+			});
+			let start = listItems[0];
+			if (listItems.length !== 0) {
+				[].forEach.call(listItems, function (listItem) {
+					listItem.addEventListener('click', function (el) {
+						start = this;
+						start.focus();
+						selectButton.value = listItem.textContent;
+						const el_selected = itsSelect.querySelector('._selected');
+						_listItem(listItem);
+						if (el_selected && el_selected !== listItem) {
+							_listItem(el_selected);
+						} else {
+							listItem.classList.add('_selected');
+						}
+						//* -------------------------------------------------
+						selectValue();
+					});
 				});
+
+				function selectValue() {
+					let buttons = selectGroup.getElementsByClassName('select__button');
+					for (i = 0; i < buttons.length; i++) {
+						buttons[i].value = start.textContent;
+						selectButton.blur();
+					};
+				}
+				//todo Переключатель классов
+				const _listItem = (el) => {
+					const collapse = new ItcCollapse(el.closest('._collapse'));
+					if (el.classList.contains('_selected')) {
+						el.classList.remove('_selected');
+						collapse.toggle();
+						el.closest('.select').classList.remove('_active-collapse');
+					} else {
+						el.classList.add('_selected');
+					}
+				};
+			}
+
+
+			selectGroup.addEventListener('keydown', function (e) {
+				e = e || window.e;
+				target = e.target;
+				if (e.key == 'ArrowUp') {
+					//* Arrow Up -------------------------------------
+					let sibling = start.previousElementSibling;
+					selectNext(sibling);
+				} else if (e.key == 'ArrowDown') {
+					//* Arrow Down -----------------------------------
+					let sibling = start.nextElementSibling;
+					selectNext(sibling);
+				} else if (e.key == 'Enter') {
+					//* Key Enter ------------------------------------
+					// sibling = e.target;
+					selectValue();
+					closeBos();
+				}
 			});
 
-			// //todo Переключатель классов
-			const _listItem = (list) => {
-				const collapse = new ItcCollapse(list.closest('._collapse'));
-				if (list.classList.contains('_selected')) {
-					list.classList.remove('_selected');
+			// todo Переключение активного элемента и его выделение при изменении фокуса;
+			function selectNext(sibling) {
+				if (sibling !== null) {
+					start.focus();
+					start.classList.remove('_selected');
+					sibling.focus();
+					sibling.classList.add('_selected');
+					start = sibling;
+				}
+			}
+
+
+
+
+			//todo Переключатель классов
+			const _toggleOpen = (el) => {
+				const collapse = new ItcCollapse(el.closest('.select').querySelector('._collapse'));
+				if (el.classList.contains('_active-collapse')) {
+					el.classList.remove('_active-collapse');
 					collapse.toggle();
-					list.closest('.dropdown').classList.remove('_active-collapse');
 				} else {
-					list.classList.add('_selected');
+					el.classList.add('_active-collapse');
+					collapse.toggle();
 				}
 			};
-		}
+			//todo Нажатие на Tab или Escape. Закрыть дропдаун;
+			document.addEventListener('keydown', function (el) {
+				if (el.key === 'Tab' || el.key === 'Escape') {
+					selectButton.blur();
+					closeBos();
+				}
+			});
 
-		select.addEventListener('keydown', function (e) {
-			e = e || window.e;
-			if (e.key == 'ArrowUp') {
-				//* Arrow Up
-				let sibling = start.previousElementSibling;
-				selectNext(sibling);
+			//todo Клик снаружи дропдауна. Закрыть дропдаун;
+			document.addEventListener('click', function (e) {
+				const classList = e.target.classList;
+				switch (true) {
+					case classList.contains('select__button'):
+						break;
+					case classList.contains('select__list-item'):
+						break;
+					default:
+						closeBos();
+						break;
 
-			} else if (e.key == 'ArrowDown') {
-				//* Arrow Down
-				let sibling = start.nextElementSibling;
-				selectNext(sibling);
-			}
-		});
+				};
+			});
 
-		//todo Нажатие на Tab или Escape. Закрыть дропдаун
-		document.addEventListener('keydown', function (el) {
-			if (el.key === 'Tab' || el.key === 'Escape') {
-				openBos();
-			}
-		});
-
-		//todo Клик снаружи дропдауна. Закрыть дропдаун
-		document.addEventListener('click', function (e) {
-			const classList = e.target.classList;
-			switch (true) {
-				case classList.contains('dropdown__button'):
-					break;
-				case classList.contains('dropdown__list-item'):
-					break;
-				default:
-					openBos();
-					break;
-
-			};
-		});
-
-		function selectNext(sibling) {
-			if (sibling !== null) {
-				start.focus();
-				start.classList.remove('_selected');
-				sibling.focus();
-				sibling.classList.add('_selected');
-				start = sibling;
-			}
-		}
-	});
-
-
-	function openBos() {
-		const dropDown = document.querySelectorAll('.dropdown');
-		dropDown.forEach(el => {
-			if (el.classList.contains('_active-collapse')) {
-				_toggleOpen(el);
+			//todo Клик снаружи дропдауна. Переключатель классов. Закрыть дропдаун;
+			function closeBos() {
+				const dropDown = document.querySelectorAll('.select');
+				dropDown.forEach(el => {
+					if (el.classList.contains('_active-collapse')) {
+						_toggleOpen(el);
+					}
+				});
 			}
 		});
 	}
-
-}
-
-const dropDowun = document.querySelectorAll('.dropdown');
-dropDowun.forEach((item) => {
-	const trigger = item.querySelector('.dropdown__button');
-	trigger.addEventListener('click', () => {
-		const opened_item = document.querySelector('._active-collapse');
-		_toggleOpen(item);
-		console.log(item);
-		if (opened_item && opened_item !== item) {
-			_toggleOpen(opened_item);
-		}
-	});
 });
 
-// //todo Переключатель классов
-const _toggleOpen = (el) => {
-	const collapse = new ItcCollapse(el.querySelector('._collapse'));
-	if (el.classList.contains('_active-collapse')) {
-		el.classList.toggle('_active-collapse');
-		collapse.toggle();
-	} else {
-		el.classList.add('_active-collapse');
-		collapse.toggle();
-	}
-};
 //* ----------------------------------------------------------------------------
 window.addEventListener("keydown", function (e) {
 	if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].indexOf(e.code) > -1) {

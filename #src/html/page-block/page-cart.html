@@ -7,7 +7,7 @@
 				<div class="tab-button__item _tablinks">Курьером по москве и мо</div>
 				<div class="tab-button__item _tablinks _active">Доставка в регионы</div>
 			</div>
-			<div class="order-place__quick-order quick-order _tabcontent">
+			<div class="order-place__quick-order quick-order">
 				<div class="quick-order__column">
 					<div class="quick-order__row">
 						<div class="quick-order__line">
@@ -52,7 +52,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="order-place__quick-order courier-order _tabcontent">
+			<div class="order-place__quick-order courier-order">
 				<div class="quick-order__column">
 					<div class="quick-order__row">
 						<div class="quick-order__line">
@@ -104,7 +104,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="order-place__quick-order regions-delivery _tabcontent _show">
+			<div class="order-place__quick-order _active regions-delivery">
 				<div class="quick-order__column">
 					<div class="quick-order__row">
 						<div class="quick-order__line">
@@ -141,21 +141,21 @@
 								<input class="input" autocomplete="off" type="text" name="form[]" data-error="Ошибка" data value="">
 							</div>
 						</div>
-						<div class="quick-order__line">
+						<div class="quick-order__line" data-select>
 							<div class="quick-order__lebel">Способ оплаты:</div>
-							<div class="quick-order__input dropdown" data-select>
-								<div class="dropdown__box-button">
-									<input type="button" class="dropdown__button input" type="text" name="form[]"
-										value="через Сбербанк"><i class="icon-arrow_select"></i>
+							<div class="quick-order__input select">
+								<div class="select__box-button">
+									<input type="button" class="select__button input" type="text" name="form[]" value="через Сбербанк">
+									<i class="icon-arrow_select"></i>
 								</div>
-								<ul class="dropdown__list _collapse">
-									<li class="dropdown__list-item _selected" value="Sberbank">через Сбербанк</li>
-									<li class="dropdown__list-item" value="UnicreditBank">через Юникредит Банк</li>
-									<li class="dropdown__list-item" value="Raiffeisenbank">через Райффайзенбанк</li>
-									<li class="dropdown__list-item" value="Rosbank">через Росбанк</li>
-									<li class="dropdown__list-item" value="VTB">через ВТБ</li>
-									<li class="dropdown__list-item" value="Alfa-Bank">через Альфа-Банк</li>
-									<li class="dropdown__list-item" value="Gazprombank">через Газпромбанк</li>
+								<ul class="select__list _collapse">
+									<li class="select__list-item _selected" value="Sberbank">через Сбербанк</li>
+									<li class="select__list-item" value="UnicreditBank">через Юникредит Банк</li>
+									<li class="select__list-item" value="Raiffeisenbank">через Райффайзенбанк</li>
+									<li class="select__list-item" value="Rosbank">через Росбанк</li>
+									<li class="select__list-item" value="VTB">через ВТБ</li>
+									<li class="select__list-item" value="Alfa-Bank">через Альфа-Банк</li>
+									<li class="select__list-item" value="Gazprombank">через Газпромбанк</li>
 								</ul>
 							</div>
 						</div>

@@ -20,21 +20,6 @@
 // todo ------------------------- Plugins --------------------------------------
 @import 'slide/swiper.scss';
 // todo ------------------------- Wrapper --------------------------------------
-[class^='icon-']::before,
-[class*=' icon-']::before {
-	font-family: '#{$icomoon-font-family}' !important;
-	speak: never;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
-
-	/* Better Font Rendering =========== */
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-// todo ------------------------- Wrapper --------------------------------------
 // #region
 .wrapper {
 	max-width: $maxWidth;
@@ -73,14 +58,11 @@
 @import 'components/burger-side';
 @import 'components/burger-top-menu';
 @import 'components/noui-slider';
-@import 'components/itc-select';
-
 // todo ----------------------- Page Blocks ------------------------------------
 @import 'page-block/header';
 @import 'page-block/page-block';
 @import 'page-block/page-sidebar';
 @import 'page-block/page-search';
-@import 'page-block/page-breadcrumbs';
 @import 'page-block/page-catalog';
 @import 'page-block/items-list';
 @import 'page-block/page-products';

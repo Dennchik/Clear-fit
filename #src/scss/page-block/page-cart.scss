@@ -1,17 +1,9 @@
-.dropdown > ._collapse:not(._show) {
-	display: none;
-}
-
-.order-place__content > ._tabcontent:not(._show) {
+.select > ._collapse:not(._show),
+.order-place__content > .order-place__quick-order:not(._active) {
 	display: none;
 }
 
 .cart-page {
-	// .cart-page__place-order
-
-	&__place-order {
-	}
-
 	// .cart-page__title
 	&__title {
 		margin-bottom: 3rem;
@@ -93,6 +85,7 @@
 		flex: 1 1 100%;
 		display: flex;
 		flex-direction: column;
+		align-items: flex-end;
 		@include _min-690 {
 			&:not(:last-child) {
 				padding-right: 4rem;
@@ -136,13 +129,12 @@
 
 	// .quick-order__lebel
 	&__lebel {
-		margin: 0 1.5rem;
+		margin: 0 6rem 0 1.5rem;
 		font-size: 1.4rem;
 		font-weight: 900;
 		color: #333333;
 		white-space: nowrap;
 		min-width: 12rem;
-		margin-right: 6rem;
 		span {
 			color: #f68038;
 		}
@@ -247,37 +239,42 @@
 	}
 }
 
-.dropdown {
+.select {
 	position: relative;
 
 	&._active-collapse {
 		.icon-arrow_select {
-			transform: rotate(-573deg);
-			right: 1%;
+			scale: -1;
 			color: #f68038;
-			top: 12%;
 		}
 	}
 
-	// .dropdown__box-button
+	// .select__box-button
 	&__box-button {
 		position: relative;
 		@include flex-align-center;
 		.icon-arrow_select {
 			position: absolute;
-			display: block;
 			right: 0;
 			color: #333;
-			font-size: 2rem;
-			transform: rotate(-34deg);
+			transform: rotate(90deg);
 			transition: all 0.3s ease-in-out;
+
+			&::before {
+				display: flex;
+				align-items: center;
+				position: relative;
+				width: 22px;
+				height: 22px;
+				font-size: 2rem;
+			}
 		}
 		input {
 			font-size: 1.4rem;
 		}
 	}
 
-	// .dropdown__button
+	// .select__button
 	&__button {
 		cursor: pointer;
 		display: block;
@@ -291,7 +288,7 @@
 		}
 	}
 
-	// .dropdown__list
+	// .select__list
 	&__list {
 		position: absolute;
 		width: 100%;
@@ -300,17 +297,14 @@
 		color: #333;
 		border: 1px solid #dadada;
 		font-size: 1.4rem;
+		box-shadow: 0px 0px 0px 2px rgba(115, 201, 212, 0.5);
 
 		@include _375 {
 			width: 19.5rem;
 		}
-
-		&._list-visible {
-			display: block;
-		}
 	}
 
-	// .dropdown__list-item
+	// .select__list-item
 	&__list-item {
 		cursor: pointer;
 		padding: 5px 10px;
@@ -321,7 +315,7 @@
 			color: #474747;
 		}
 		&:hover {
-			background: #b8f7ff;
+			background: #dadada;
 		}
 	}
 }

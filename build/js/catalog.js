@@ -1,226 +1,3 @@
-'use strict';
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var ItcCustomSelect = /*#__PURE__*/function () {
-	function ItcCustomSelect(target, params) {
-		_classCallCheck(this, ItcCustomSelect);
-
-		this._el = typeof target === 'string' ? document.querySelector(target) : target;
-		this._params = params || {};
-		this._onClickFn = this._onClick.bind(this);
-
-		if (this._params.options) {
-			this._el.innerHTML = this.constructor.template(this._params);
-
-			this._el.classList.add(this.constructor.EL);
-		}
-
-		this._elToggle = this._el.querySelector(this.constructor.DATA_TOGGLE);
-
-		this._el.addEventListener('click', this._onClickFn);
-	}
-
-	_createClass(ItcCustomSelect, [{
-		key: "_onClick",
-		value: function _onClick(e) {
-			var target = e.target;
-			var type = target.closest(this.constructor.DATA).dataset.select;
-
-			if (type === 'toggle') {
-				this.toggle();
-			} else if (type === 'option') {
-				this._changeValue(target);
-			}
-		}
-	}, {
-		key: "_updateOption",
-		value: function _updateOption(el) {
-			var elOption = el.closest(".".concat(this.constructor.EL_OPTION));
-
-			var elOptionSel = this._el.querySelector(".".concat(this.constructor.EL_OPTION_SELECTED));
-
-			if (elOptionSel) {
-				elOptionSel.classList.remove(this.constructor.EL_OPTION_SELECTED);
-			}
-
-			elOption.classList.add(this.constructor.EL_OPTION_SELECTED);
-			this._elToggle.textContent = elOption.textContent;
-			this._elToggle.value = elOption.dataset.value;
-			this._elToggle.dataset.index = elOption.dataset.index;
-
-			this._el.dispatchEvent(new CustomEvent('itc.select.change'));
-
-			this._params.onSelected ? this._params.onSelected(this, elOption) : null;
-			return elOption.dataset.value;
-		}
-	}, {
-		key: "_reset",
-		value: function _reset() {
-			var selected = this._el.querySelector(".".concat(this.constructor.EL_OPTION_SELECTED));
-
-			if (selected) {
-				selected.classList.remove(this.constructor.EL_OPTION_SELECTED);
-			}
-
-			this._elToggle.textContent = 'Выберите из списка';
-			this._elToggle.value = '';
-			this._elToggle.dataset.index = '-1';
-
-			this._el.dispatchEvent(new CustomEvent('itc.select.change'));
-
-			this._params.onSelected ? this._params.onSelected(this, null) : null;
-			return '';
-		}
-	}, {
-		key: "_changeValue",
-		value: function _changeValue(el) {
-			if (el.classList.contains(this.constructor.EL_OPTION_SELECTED)) {
-				return;
-			}
-
-			this._updateOption(el);
-
-			this.hide();
-		}
-	}, {
-		key: "show",
-		value: function show() {
-			var _this = this;
-
-			document.querySelectorAll(this.constructor.EL_SHOW).forEach(function (el) {
-				el.classList.remove(_this.constructor.EL_SHOW);
-			});
-
-			this._el.classList.add("".concat(this.constructor.EL_SHOW));
-		}
-	}, {
-		key: "hide",
-		value: function hide() {
-			this._el.classList.remove(this.constructor.EL_SHOW);
-		}
-	}, {
-		key: "toggle",
-		value: function toggle() {
-			this._el.classList.contains(this.constructor.EL_SHOW) ? this.hide() : this.show();
-		}
-	}, {
-		key: "dispose",
-		value: function dispose() {
-			this._el.removeEventListener('click', this._onClickFn);
-		}
-	}, {
-		key: "value",
-		get: function get() {
-			return this._elToggle.value;
-		},
-		set: function set(value) {
-			var _this2 = this;
-
-			var isExists = false;
-
-			this._el.querySelectorAll('.select__option').forEach(function (option) {
-				if (option.dataset.value === value) {
-					isExists = true;
-
-					_this2._updateOption(option);
-				}
-			});
-
-			if (!isExists) {
-				this._reset();
-			}
-		}
-	}, {
-		key: "selectedIndex",
-		get: function get() {
-			return this._elToggle.dataset.index;
-		},
-		set: function set(index) {
-			var option = this._el.querySelector(".select__option[data-index=\"".concat(index, "\"]"));
-
-			if (option) {
-				this._updateOption(option);
-			}
-
-			this._reset();
-		}
-	}], [{
-		key: "template",
-		value: function template(params) {
-			var _this3 = this;
-
-			var name = params.name,
-				options = params.options,
-				targetValue = params.targetValue;
-			var items = [];
-			var selectedIndex = -1;
-			var selectedValue = '';
-			var selectedContent = 'Выберите из списка';
-			options.forEach(function (option, index) {
-				var selectedClass = '';
-
-				if (option[0] === targetValue) {
-					selectedClass = " ".concat(_this3.EL_OPTION_SELECTED);
-					selectedIndex = index;
-					selectedValue = option[0];
-					selectedContent = option[1];
-				}
-
-				items.push("<li class=\"itc-select__option".concat(selectedClass, "\"data-select=\"option\"\n    data-value=\"").concat(option[0], "\" data-index=\"").concat(index, "\">").concat(option[1], "</li>"));
-			});
-			return "<button type=\"button\" class=\"itc-select__toggle\" name=\"".concat(name, "\"\n    value=\"").concat(selectedValue, "\" data-select=\"toggle\" data-index=\"").concat(selectedIndex, "\">\n    ").concat(selectedContent, "</button><div class=\"itc-select__dropdown\">\n    <ul class=\"itc-select__options\">").concat(items.join(''), "</ul></div>");
-		}
-	}, {
-		key: "hideOpenSelect",
-		value: function hideOpenSelect() {
-			var _this4 = this;
-
-			document.addEventListener('click', function (e) {
-				if (!e.target.closest(".".concat(_this4.EL))) {
-					var elsActive = document.querySelectorAll(".".concat(_this4.EL_SHOW));
-					elsActive.forEach(function (el) {
-						el.classList.remove(_this4.EL_SHOW);
-					});
-				}
-			});
-		}
-	}, {
-		key: "create",
-		value: function create(target, params) {
-			this._el = typeof target === 'string' ? document.querySelector(target) : target;
-
-			if (this._el) {
-				return new this(target, params);
-			}
-
-			return null;
-		}
-	}]);
-
-	return ItcCustomSelect;
-}();
-
-_defineProperty(ItcCustomSelect, "EL", 'itc-select');
-
-_defineProperty(ItcCustomSelect, "EL_SHOW", 'itc-select_show');
-
-_defineProperty(ItcCustomSelect, "EL_OPTION", 'itc-select__option');
-
-_defineProperty(ItcCustomSelect, "EL_OPTION_SELECTED", 'itc-select__option_selected');
-
-_defineProperty(ItcCustomSelect, "DATA", '[data-select]');
-
-_defineProperty(ItcCustomSelect, "DATA_TOGGLE", '[data-select="toggle"]');
-
-ItcCustomSelect.hideOpenSelect();
-
 (function (factory) {
   if (typeof define === "function" && define.amd) {
     // AMD. Register as an anonymous module.
@@ -2924,6 +2701,7 @@ if (document.querySelector('.catalog__slide')) {
 		autoHeight: true,
 		speed: 800,
 		loop: true,
+		preloadImages: true,
 		pagination: {
 			el: ".pagination",
 			clickable: true,
@@ -3041,36 +2819,197 @@ const _toggleHover = (el) => {
 		}
 	}
 };
-//* ---------------------------[ItcCustomSelect]--------------------------------
-document.addEventListener('DOMContentLoaded', () => {
-	new ItcCustomSelect('.ui-select-1', {
-		name: 'form[]',
-		targetValue: 'byDefault',
-		options: [
-			['byDefault', 'По умолчанию'],
-			['byPrice', 'По цене'],
-			['byName', 'По названию']
-		]
-	});
-	new ItcCustomSelect('.ui-select-2', {
-		name: 'form[]',
-		targetValue: '1',
-		options: [
-			['1', '6'],
-			['2', '12'],
-			['3', '24'],
-			['4', '50']
-		]
-	});
-	new ItcCustomSelect('.ui-select-3', {
-		name: 'form[]',
-		targetValue: '1',
-		options: [
-			['1', '6'],
-			['2', '12'],
-			['3', '24'],
-			['4', '50']
-		]
-	});
+//* ------------------------------ [Select]-------------------------------------
+document.querySelectorAll('[data-select]').forEach(function (selectGroup) {
+	const itsSelects = selectGroup.querySelectorAll('.select');
+	if (itsSelects) {
+		itsSelects.forEach(itsSelect => {
+			const listItems = itsSelect.querySelectorAll('.select__list-item');
+			const selectButton = itsSelect.querySelector('.select__button');
+			itsSelect.addEventListener('click', function (el) {
+				if (el.target.closest('.select__button')) {
+					const opened_select = document.querySelector('._active-collapse');
+					_toggleOpen(itsSelect);
+					if (el.target.closest('.select__box-button')) {
+						start = el.target.closest('.select__box-button').nextElementSibling.querySelector('._selected');
+					}
+					if (!el.target.closest('.select').classList.contains('_active-collapse')) {
+						selectButton.blur();
+					}
+					if (opened_select && opened_select !== itsSelect) {
+						_toggleOpen(opened_select);
+					}
+				}
+			});
+			let start = listItems[0];
+			if (listItems.length !== 0) {
+				[].forEach.call(listItems, function (listItem) {
+					listItem.addEventListener('click', function (el) {
+						start = this;
+						start.focus();
+						selectButton.value = listItem.textContent;
+						const el_selected = itsSelect.querySelector('._selected');
+						_listItem(listItem);
+						if (el_selected && el_selected !== listItem) {
+							_listItem(el_selected);
+						} else {
+							listItem.classList.add('_selected');
+						}
+						//* -------------------------------------------------
+						selectValue();
+					});
+				});
+
+				function selectValue() {
+					let buttons = selectGroup.getElementsByClassName('select__button');
+					for (i = 0; i < buttons.length; i++) {
+						buttons[i].value = start.textContent;
+						selectButton.blur();
+					};
+				}
+				//todo Переключатель классов
+				const _listItem = (el) => {
+					const collapse = new ItcCollapse(el.closest('._collapse'));
+					if (el.classList.contains('_selected')) {
+						el.classList.remove('_selected');
+						collapse.toggle();
+						el.closest('.select').classList.remove('_active-collapse');
+					} else {
+						el.classList.add('_selected');
+					}
+				};
+			}
+
+
+			selectGroup.addEventListener('keydown', function (e) {
+				e = e || window.e;
+				target = e.target;
+				if (e.key == 'ArrowUp') {
+					//* Arrow Up -------------------------------------
+					let sibling = start.previousElementSibling;
+					selectNext(sibling);
+				} else if (e.key == 'ArrowDown') {
+					//* Arrow Down -----------------------------------
+					let sibling = start.nextElementSibling;
+					selectNext(sibling);
+				} else if (e.key == 'Enter') {
+					//* Key Enter ------------------------------------
+					// sibling = e.target;
+					selectValue();
+					closeBos();
+				}
+			});
+
+			// todo Переключение активного элемента и его выделение при изменении фокуса;
+			function selectNext(sibling) {
+				if (sibling !== null) {
+					start.focus();
+					start.classList.remove('_selected');
+					sibling.focus();
+					sibling.classList.add('_selected');
+					start = sibling;
+				}
+			}
+
+
+
+
+			//todo Переключатель классов
+			const _toggleOpen = (el) => {
+				const collapse = new ItcCollapse(el.closest('.select').querySelector('._collapse'));
+				if (el.classList.contains('_active-collapse')) {
+					el.classList.remove('_active-collapse');
+					collapse.toggle();
+				} else {
+					el.classList.add('_active-collapse');
+					collapse.toggle();
+				}
+			};
+			//todo Нажатие на Tab или Escape. Закрыть дропдаун;
+			document.addEventListener('keydown', function (el) {
+				if (el.key === 'Tab' || el.key === 'Escape') {
+					selectButton.blur();
+					closeBos();
+				}
+			});
+
+			//todo Клик снаружи дропдауна. Закрыть дропдаун;
+			document.addEventListener('click', function (e) {
+				const classList = e.target.classList;
+				switch (true) {
+					case classList.contains('select__button'):
+						break;
+					case classList.contains('select__list-item'):
+						break;
+					default:
+						closeBos();
+						break;
+
+				};
+			});
+
+			//todo Клик снаружи дропдауна. Переключатель классов. Закрыть дропдаун;
+			function closeBos() {
+				const dropDown = document.querySelectorAll('.select');
+				dropDown.forEach(el => {
+					if (el.classList.contains('_active-collapse')) {
+						_toggleOpen(el);
+					}
+				});
+			}
+		});
+	}
 });
+const oneLincks = document.querySelector('.select-one').children;
+const twoLincks = document.querySelector('.select-two').children;
+for (const i in oneLincks) {
+	const oneLinck = oneLincks[i];
+	const twoLinck = twoLincks[i];
+	if (Object.hasOwnProperty.call(twoLincks, i)) {
+		oneLinck.addEventListener('click', function () {
+			const one_linck = document.querySelector('.select-one').querySelector('._selected');
+			const two_linck = document.querySelector('.select-two').querySelector('._selected');
+			_selectList(one_linck);
+			if (one_linck && one_linck !== twoLinck) {
+				_selectList(oneLinck);
+			}
+			_selectList(two_linck);
+			if (two_linck && two_linck !== oneLinck) {
+				_selectList(twoLinck);
+			}
+		});
+	}
+}
+for (const i in twoLincks) {
+	const oneLinck = oneLincks[i];
+	const twoLinck = twoLincks[i];
+	if (Object.hasOwnProperty.call(oneLincks, i)) {
+		twoLinck.addEventListener('click', function () {
+			const one_linck = document.querySelector('.select-one').querySelector('._selected');
+			const two_linck = document.querySelector('.select-two').querySelector('._selected');
+			_selectList(one_linck);
+			if (one_linck && one_linck !== twoLinck) {
+				_selectList(oneLinck);
+			}
+			_selectList(two_linck);
+			if (two_linck && two_linck !== oneLinck) {
+				_selectList(twoLinck);
+			}
+		});
+	}
+}
+const _selectList = (el) => {
+	if (el.classList.contains('_selected')) {
+		el.classList.remove('_selected');
+	} else {
+		el.classList.add('_selected');
+	}
+};
+//* ----------------------------------------------------------------------------
+window.addEventListener("keydown", function (e) {
+	if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].indexOf(e.code) > -1) {
+		e.preventDefault();
+	}
+}, false);
+//* ----------------------------------------------------------------------------
 //# sourceMappingURL=catalog.js.map
