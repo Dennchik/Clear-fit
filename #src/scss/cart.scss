@@ -18,6 +18,7 @@
 // todo ------------------------- Wrapper --------------------------------------
 // #region
 .wrapper {
+	position: relative;
 	max-width: $maxWidth;
 	min-height: 100vh;
 	margin: 0 auto;

@@ -1,27 +1,19 @@
-#clock {
-	position: absolute;
-	text-align: center;
-	color: #f68038;
-	text-shadow: 2px 2px 3px #000000;
-	top: -7px;
-	right: 0;
-	font-size: 16px;
-	z-index: 9;
-	@include _690 {
-		top: 2px;
-		right: 15px;
-	}
-}
-
 .header {
 	z-index: 9;
 	position: sticky;
 	top: 0;
-	left: 0;
 	min-width: 100%;
 	background: $bgColor url('../img/header/bg-logo.png') center top no-repeat;
-	@include _768 {
+	@include _690-768 {
 		background: $bgColor url('../img/header/bg-logo.png') left top no-repeat;
+	}
+	@include _screen-690 {
+		background-image: none;
+	}
+	&__top {
+		@include _screen-690 {
+			background-color: #068292;
+		}
 	}
 }
 
@@ -37,6 +29,7 @@
 			grid-template-columns: auto auto 30px;
 			justify-items: end;
 			gap: 10px;
+			grid-template-rows: 55px;
 			&__menu {
 				display: none;
 			}

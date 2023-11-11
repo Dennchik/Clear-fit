@@ -27,7 +27,7 @@
 	&__row {
 		margin: 0 -30px;
 		display: flex;
-		@include _970 {
+		@include _992 {
 			flex-wrap: wrap;
 		}
 	}
@@ -43,7 +43,7 @@
 		line-height: 20px;
 		letter-spacing: 0.025em;
 
-		@include _970 {
+		@include _992 {
 			flex: 0 1 100%;
 			&:not(:last-child) {
 				margin-bottom: 30px;
@@ -80,7 +80,7 @@
 
 	// .text-block__image
 	&__image {
-		@include _970 {
+		@include _992 {
 			display: none;
 		}
 	}

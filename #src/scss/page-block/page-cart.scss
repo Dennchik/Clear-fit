@@ -30,14 +30,15 @@
 		padding: 2rem 2rem 3rem;
 		background-color: #f3f3f3;
 		@include _375 {
-			padding: 2rem 0;
+			padding: 2rem 1rem;
 		}
 	}
 
 	// .order-place__tabs
 	&__tabs {
 		margin-bottom: 3rem;
-		@include flex-align-center;
+		// @include flex-align-center;
+		overflow: hidden;
 	}
 
 	// .order-place__quick-order
@@ -52,6 +53,7 @@
 .tab-button {
 	// .tab-descriptions__item
 	&__item {
+		float: left;
 		cursor: pointer;
 		padding: 1.5rem;
 		font-size: 1.4rem;
@@ -60,21 +62,99 @@
 		color: #72c9d4;
 		text-decoration: underline dashed;
 		white-space: nowrap;
+
 		&._active {
 			background-color: #72c9d4;
 			color: #fff;
 			text-decoration: none;
 		}
-		@include _375 {
-			font-size: 1.2rem;
-		}
+
 		@include _690 {
 			padding: 1rem;
 		}
+
 		@include _min-690 {
 			&:not(:last-child) {
 				margin-right: 3.5rem;
 			}
+		}
+
+		@include _screen-690 {
+			&:not(._active) {
+				display: none;
+			}
+		}
+	}
+
+	// .tab-button__icon-wrapp
+	&__icon-wrapp {
+		display: none;
+		float: right;
+		overflow: hidden;
+		width: 3.7rem;
+		height: 3.7rem;
+		cursor: pointer;
+		transition: 0.4s ease-in-out;
+		background: #fff;
+		@include _screen-690 {
+			@include flex-align-center-justify-center;
+		}
+	}
+
+	// .tab-button__icon
+	&__icon {
+		margin: auto;
+		cursor: pointer;
+		position: relative;
+		width: 22px;
+		height: 18px;
+
+		span {
+			position: absolute;
+			left: 0;
+			display: block;
+			width: 100%;
+			height: 2px;
+			transition: 0.4s ease-in-out;
+			transform: rotate(0deg);
+			opacity: 1;
+			border-radius: 2px;
+			background-color: #1ab9ce;
+			&:nth-child(2) {
+				top: 7px;
+			}
+
+			&:nth-child(3) {
+				top: 14px;
+			}
+		}
+		&._active {
+			span {
+				&:nth-child(1) {
+					transform: scale(1.088) translateY(7px) rotate(135deg);
+				}
+				&:nth-child(2) {
+					opacity: 0;
+					transform: translateX(-60px);
+				}
+				&:nth-child(3) {
+					transform: scale(1.088) translateY(-6px) rotate(-135deg);
+				}
+			}
+		}
+	}
+
+	&._responsive {
+		position: relative;
+		.tab-button__icon-wrapp {
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+		.tab-button__item {
+			float: none;
+			display: block;
+			text-align: left;
 		}
 	}
 }
@@ -86,18 +166,20 @@
 		display: flex;
 		flex-direction: column;
 		align-items: flex-end;
+
 		@include _min-690 {
 			&:not(:last-child) {
 				padding-right: 4rem;
 			}
 		}
 
-		@include _375-690 {
-			flex: 1 1 100%;
-		}
+		// @include _375-690 {
+		// 	flex: 1 1 100%;
+		// }
 	}
 	// .quick-order___row
 	&__row {
+		width: 100%;
 		margin-bottom: 1.5rem;
 		flex: 1 1 100%;
 	}
@@ -510,4 +592,3 @@
 .icon-ruble {
 	margin-left: 0.5rem;
 }
-// -----------------------------------------------------------------------------
