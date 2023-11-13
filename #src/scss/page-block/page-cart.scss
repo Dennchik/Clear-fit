@@ -95,7 +95,7 @@
 		height: 3.7rem;
 		cursor: pointer;
 		transition: 0.4s ease-in-out;
-		background: #fff;
+		background: #f3f3f3;
 		@include _screen-690 {
 			@include flex-align-center-justify-center;
 		}
@@ -547,10 +547,6 @@
 }
 
 .card-name {
-	// .card-name__price
-	&__price {
-	}
-
 	// .card-name__new-price
 	&__new-price {
 		span {
@@ -569,11 +565,6 @@
 		p {
 			min-width: 12rem;
 		}
-	}
-
-	// .card-name__quantity-price
-
-	&__quantity-price {
 	}
 }
 

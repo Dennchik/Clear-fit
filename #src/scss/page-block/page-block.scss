@@ -4,12 +4,10 @@
 	// .page__container
 	&__container {
 		margin: 5px auto 20px;
-		box-shadow: 2px 3px 8px 1px #00000086;
 	}
 
 	// .page__content
 	&__content {
-		padding: 20px 0 0;
 		@include _min-920 {
 			display: flex;
 		}

@@ -21,8 +21,12 @@
 
 		background: url('../img/main/bg_menu_title.png') top;
 		object-fit: cover;
+		@include _490 {
+			height: 6.5rem;
+		}
 
 		h1 {
+			white-space: nowrap;
 			z-index: 1;
 			font: {
 				family: 'UniSansHeavyCaps', sans-serif;

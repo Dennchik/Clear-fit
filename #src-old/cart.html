@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include("html/components/head-cart.html",{
+"title":"Корзина"})
+
+<body>
+	@@include('html/components/loading_4.html')
+	<div class="wrapper">
+		@@include("html/page-block/header.html")
+		<main class="page">
+			<div class="page__container _container">
+				<div class="page__content">
+					<aside class="page__sidebar">
+						@@include("html/page-block/page-sidebar.html")
+						@@include("html/page-block/page-news.html")
+					</aside>
+					<div class="page__main-content cart">
+						<!-----------------SerchCheckbox------------------->
+						@@include("html/page-block/page-search.html")
+						<nav class="breadcrumbs">
+							<ul class="breadcrumbs__list">
+								<li><a href="index.html" class="breadcrumbs__link">Главная</a></li>
+								<li class="icon-angle-double-right"><span class="breadcrumbs__item">Корзина</span></li>
+							</ul>
+						</nav>
+						<!-----------------Page Cart------------------->
+						<div class="page__cart cart-page">
+							@@include("html/page-block/page-cart.html")
+						</div>
+					</div>
+				</div>
+			</div>
+			<section class="page__info block-info">
+				@@include("html/page-block/page-info.html")
+			</section>
+		</main>
+		@@include("html/page-block/footer.html")
+	</div>
+</body>
+
+</html>

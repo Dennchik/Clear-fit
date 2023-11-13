@@ -1,8 +1,8 @@
 // * ---------------------------[Burger-Top-Menu]-------------------------------
-const overlay = document.getElementById('menu');
-const burgerMenu = document.querySelector('.burger-menu');
+const overlay = document.querySelector('.mobile-menu');
+const burgerMenu = document.querySelector('.icon__item');
 const page = document.querySelector('.top-header__menu');
-document.querySelector('.burger-menu').onclick = () => {
+document.querySelector('.icon__item').onclick = () => {
 	burgerMenu.classList.toggle('_open');
 	overlay.classList.toggle('_overlay');
 	page.classList.toggle('_fx');
