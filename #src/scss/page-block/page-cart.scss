@@ -547,6 +547,10 @@
 }
 
 .card-name {
+	// .card-name__price
+	&__price {
+	}
+
 	// .card-name__new-price
 	&__new-price {
 		span {
@@ -565,6 +569,11 @@
 		p {
 			min-width: 12rem;
 		}
+	}
+
+	// .card-name__quantity-price
+
+	&__quantity-price {
 	}
 }
 

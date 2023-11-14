@@ -1,0 +1,8 @@
+@@include('modules/loading.js', {})
+@@include('libraries/wNumb.js', {})
+@@include('libraries/nouislider.js', {})
+@@include('libraries/Js-devise.js', {})
+@@include('libraries/dynamic.js', {})
+@@include('libraries/swiper-bundle@10.2.0.js', {})
+@@include('libraries/collapse.js', {})
+@@include('libraries/itc-select.js', {})
