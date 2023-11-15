@@ -172,10 +172,6 @@
 				padding-right: 4rem;
 			}
 		}
-
-		// @include _375-690 {
-		// 	flex: 1 1 100%;
-		// }
 	}
 	// .quick-order___row
 	&__row {
@@ -185,9 +181,11 @@
 	}
 	// .quick-order__text
 	&__text {
+		text-align: justify;
+		font-size: 12px;
 		p {
 			color: #777;
-			line-height: 18px;
+			line-height: 150%; /* 18/12 */
 			&:not(:last-child) {
 				margin-bottom: 3rem;
 			}
@@ -199,7 +197,7 @@
 			}
 		}
 		@include _690 {
-			margin: 2rem 0 0 2rem;
+			margin: 2rem 0;
 		}
 	}
 
@@ -547,10 +545,6 @@
 }
 
 .card-name {
-	// .card-name__price
-	&__price {
-	}
-
 	// .card-name__new-price
 	&__new-price {
 		span {
@@ -569,11 +563,6 @@
 		p {
 			min-width: 12rem;
 		}
-	}
-
-	// .card-name__quantity-price
-
-	&__quantity-price {
 	}
 }
 
