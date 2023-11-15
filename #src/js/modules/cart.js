@@ -58,9 +58,9 @@ if (counters) {
 				value++;
 			}
 			if (value <= 1) {
-				let = _opacityAdd();
+				_opacityAdd();
 			} else if (value > 1) {
-				let = _opacityRemove();
+				_opacityRemove();
 			}
 			value = isNaN(value) ? 1 : value;
 			target.closest('.quantity').querySelector('input').value = value;

@@ -123,9 +123,9 @@ if (actions) {
 				value++;
 			}
 			if (value <= 1) {
-				let = _opacityAdd();
+				_opacityAdd();
 			} else if (value > 1) {
-				let = _opacityRemove();
+				_opacityRemove();
 			}
 			value.oninput = function () {
 				this.value = this.value.replace(/[^\d]/g, '');
