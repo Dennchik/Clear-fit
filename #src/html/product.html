@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="ru">
-@@include("html/components/head-products.html",{
-"title":"Список товаров"})
+@@include("layout/head-products.html",{"title":"Список товаров"})
 
 <body>
-	@@include('html/components/loading_2.html')
+	@@include('partials/loading.html')
 	<div class="wrapper">
-		@@include("html/page-block/header.html")
+		@@include("partials/header.html")
 		<main class="page">
 			<div class="page__container">
 				<div class="page__content">
 					<aside class="page__sidebar">
-						@@include("html/page-block/page-sidebar.html")
-						@@include("html/page-block/page-news.html")
+						@@include("page-blocks/page-sidebar.html")
+						@@include("page-blocks/page-news.html")
 					</aside>
 					<div class="page__main-content">
 						<!-----------------Checkbox---------------------->
-						@@include("html/page-block/page-search.html")
+						@@include("page-blocks/page-search.html")
 						<!-----------------Breadcrumbs--------------------->
 						<nav class="breadcrumbs">
 							<ul class="breadcrumbs__list">
@@ -25,15 +24,15 @@
 							</ul>
 						</nav>
 						<!------------------Products----------------------->
-						@@include("html/page-block/page-product.html")
+						@@include("page-blocks/page-product.html")
 					</div>
 				</div>
 			</div>
 			<section class="page__info block-info">
-				@@include("html/page-block/page-info.html")
+				@@include("page-blocks/page-info.html")
 			</section>
 		</main>
-		@@include("html/page-block/footer.html")
+		@@include("partials/footer.html")
 	</div>
 </body>
 
