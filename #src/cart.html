@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="ru">
-@@include("layout/head-cart.html",{"title":"Корзина"})
+@@include("html/components/head-cart.html",{
+"title":"Корзина"})
 
 <body>
-	@@include('partials/loading.html')
+	@@include('html/components/loading_2.html')
 	<div class="wrapper">
-		@@include("partials/header.html")
+		@@include("html/page-block/header.html")
 		<main class="page">
 			<div class="page__container _container">
 				<div class="page__content">
 					<aside class="page__sidebar">
-						@@include("page-blocks/page-sidebar.html")
-						@@include("page-blocks/page-news.html")
+						@@include("html/page-block/page-sidebar.html")
+						@@include("html/page-block/page-news.html")
 					</aside>
 					<div class="page__main-content cart">
 						<!-----------------SerchCheckbox------------------->
-						@@include("page-blocks/page-search.html")
+						@@include("html/page-block/page-search.html")
 						<nav class="breadcrumbs">
 							<ul class="breadcrumbs__list">
 								<li><a href="index.html" class="breadcrumbs__link">Главная</a></li>
@@ -24,16 +25,16 @@
 						</nav>
 						<!-----------------Page Cart------------------->
 						<div class="page__cart cart-page">
-							@@include("page-blocks/page-cart.html")
+							@@include("html/page-block/page-cart.html")
 						</div>
 					</div>
 				</div>
 			</div>
 			<section class="page__info block-info">
-				@@include("page-blocks/page-info.html")
+				@@include("html/page-block/page-info.html")
 			</section>
 		</main>
-		@@include("partials/footer.html")
+		@@include("html/page-block/footer.html")
 	</div>
 </body>
 

@@ -1,5 +1,5 @@
 @@include('modules/loading.js', {})
+@@include('libraries/swiper-bundle@10.2.0.js', {})
 @@include('libraries/collapse.js', {})
-@@include('libraries/dynamic.js', {})
-@@include('libraries/swiper-bundle@11.0.5.js', {})
 @@include('libraries/Js-devise.js', {})
+@@include('libraries/dynamic.js', {})

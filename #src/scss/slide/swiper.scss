@@ -10,12 +10,15 @@
 }
 @at-root {
 	:root {
-		--swiper-theme-color: $swiperThemeColor;
-		--swiper-preloader-color: var(--swiper-theme-color);
-		--swiper-wrapper-transition-timing-function: initial;
+		--swiper-theme-color: $themeColor;
+		/*
+    --swiper-preloader-color: var(--swiper-theme-color);
+    --swiper-wrapper-transition-timing-function: initial;
+    */
 	}
 }
-.swiper {
+.swiper,
+swiper-container {
 	margin-left: auto;
 	margin-right: auto;
 	position: relative;
@@ -216,9 +219,12 @@ swiper-slide {
 	border-radius: 50%;
 	border-top-color: transparent;
 }
-.swiper:not(.swiper-watch-progress) .swiper-lazy-preloader,
-.swiper-watch-progress .swiper-slide-visible .swiper-lazy-preloader {
-	animation: swiper-preloader-spin 1s infinite linear;
+.swiper:not(.swiper-watch-progress),
+swiper-container:not(.swiper-watch-progress),
+.swiper-watch-progress .swiper-slide-visible {
+	.swiper-lazy-preloader {
+		animation: swiper-preloader-spin 1s infinite linear;
+	}
 }
 .swiper-lazy-preloader-white {
 	--swiper-preloader-color: #fff;

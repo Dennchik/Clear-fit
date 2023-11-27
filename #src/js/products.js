@@ -1,2 +1,2 @@
-@@include('modules/init-swiper.js', {})
+@@include('libraries/init-swiper.js', {})
 @@include('modules/products.js', {})
