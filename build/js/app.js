@@ -6,33 +6,6 @@ window.onload = function () {
 	}, 250);
 
 };
-// === Определение устройства вывода ===
-"use strict";
-var isMobile = {
-	Android: function () {
-		return navigator.userAgent.match(/Android/i);
-	},
-	BlackBerry: () => {
-		return navigator.userAgent.match(/BlackBerry/i);
-	},
-	iOS: () => {
-		return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-	},
-	Opera: () => {
-		return navigator.userAgent.match(/Opera Mini/i);
-	},
-	Windows: () => {
-		return navigator.userAgent.match(/IEMobile/i);
-	},
-	any: () => {
-		return (
-			isMobile.Android() ||
-			isMobile.BlackBerry() ||
-			isMobile.iOS() ||
-			isMobile.Opera() ||
-			isMobile.Windows());
-	}
-};
 class ItcCollapse {
 	constructor(target, duration = 350) {
 		this._target = target;
@@ -9744,3 +9717,32 @@ var Swiper = (function () {
   return Swiper;
 
 })();
+
+// === Определение устройства вывода ===
+"use strict";
+var isMobile = {
+	Android: function () {
+		return navigator.userAgent.match(/Android/i);
+	},
+	BlackBerry: () => {
+		return navigator.userAgent.match(/BlackBerry/i);
+	},
+	iOS: () => {
+		return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+	},
+	Opera: () => {
+		return navigator.userAgent.match(/Opera Mini/i);
+	},
+	Windows: () => {
+		return navigator.userAgent.match(/IEMobile/i);
+	},
+	any: () => {
+		return (
+			isMobile.Android() ||
+			isMobile.BlackBerry() ||
+			isMobile.iOS() ||
+			isMobile.Opera() ||
+			isMobile.Windows());
+	}
+};
+//# sourceMappingURL=app.js.map

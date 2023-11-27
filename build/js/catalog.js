@@ -2993,3 +2993,4 @@ const _selectList = (el) => {
 		el.classList.add('_selected');
 	}
 };
+//# sourceMappingURL=catalog.js.map

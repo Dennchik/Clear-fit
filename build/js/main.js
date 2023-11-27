@@ -91,3 +91,4 @@ for (let i = 0; i < checkboxCategories.length; i++) {
 		}
 	});
 };
+//# sourceMappingURL=main.js.map
