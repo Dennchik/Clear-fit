@@ -38,12 +38,6 @@
 	padding: 0 15px;
 }
 
-// === Сетка ===
-// [class^='grid-'] {
-// 	display: grid;
-// 	place-self: center;
-// }
-
 [class*='grid-'] {
 	display: grid;
 }
@@ -54,7 +48,7 @@
 	min-height: calc(100vh - ($headerHeight + $footerHeight));
 }
 //todo ------------------------ Components -------------------------------------
-@import 'components/loading_2.scss';
+@import 'components/loading.scss';
 @import 'components/bem-block';
 @import 'components/burger-side';
 // todo ----------------------- Page Blocks ------------------------------------

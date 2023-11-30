@@ -117,5 +117,3 @@ if (document.querySelector('.brands-slide')) {
 		}
 	});
 }
-
-//# sourceMappingURL=index.js.map

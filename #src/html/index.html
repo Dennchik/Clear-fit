@@ -1,40 +1,40 @@
 <!DOCTYPE html>
 <html lang="ru">
-@@include("html/components/head.html",{
+@@include("components/head.html",{
 "title":"Главная"})
 
 <body>
-	@@include('html/components/loading_2.html')
+	@@include('partials/loading.html')
 	<div class="wrapper">
-		@@include("html/page-block/header.html")
+		@@include("pages/header.html")
 		<main class="page">
 			<div class="page__container">
 				<div class="page__content">
 					<aside class="page__sidebar">
-						@@include("html/page-block/page-sidebar.html")
-						@@include("html/page-block/page-news.html")
+						@@include("pages/page-sidebar.html")
+						@@include("pages/page-news.html")
 					</aside>
 					<div class="page__main-content">
 						<!-----------------Checkbox---------------------->
-						@@include("html/page-block/page-search.html")
+						@@include("pages/page-search.html")
 						<!------------------Slider----------------------->
-						@@include("html/page-block/page-mainslide.html")
+						@@include("pages/page-mainslide.html")
 						<!------------------Products----------------------->
-						@@include("html/page-block/page-products.html")
+						@@include("pages/page-products.html")
 					</div>
 				</div>
 			</div>
 			<div class="page__brands brands-slide">
-				@@include("html/page-block/page-brands.html")
+				@@include("pages/page-brands.html")
 			</div>
 			<section class="page__text text-block">
-				@@include("html/page-block/page-text.html")
+				@@include("pages/page-text.html")
 			</section>
 			<section class="page__info block-info">
-				@@include("html/page-block/page-info.html")
+				@@include("pages/page-info.html")
 			</section>
 		</main>
-		@@include("html/page-block/footer.html")
+		@@include("pages/footer.html")
 	</div>
 </body>
 

@@ -183,4 +183,3 @@ function _totalSumProduct() {
 	}
 	return _NewTotal;
 }
-//# sourceMappingURL=products.js.map

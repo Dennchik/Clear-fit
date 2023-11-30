@@ -1,0 +1,44 @@
+| 
+
+@@include("components/head.html",{ "title":"Главная"})
+
+@@include('components/loading_4.html')
+
+.wrapper
+  | 
+@@include("page-block/header.html")
+
+  main.page
+    .page__container
+      .page__content
+        aside.page__sidebar.
+          
+          @@include("page-block/page-sidebar.html") @@include("page-block/page-news.html")
+          
+        .page__main-content
+          // ---------------Checkbox--------------------
+          | 
+@@include("page-block/page-search.html")
+
+          // ----------------Slider---------------------
+          | 
+@@include("page-block/page-mainslide.html")
+
+          // ----------------Products---------------------
+          | 
+@@include("page-block/page-products.html")
+
+    .page__brands.brands-slide.
+      
+      @@include("page-block/page-brands.html")
+      
+    section.page__text.text-block.
+      
+      @@include("page-block/page-text.html")
+      
+    section.page__info.block-info.
+      
+      @@include("page-block/page-info.html")
+      
+  | 
+@@include("page-block/footer.html")
