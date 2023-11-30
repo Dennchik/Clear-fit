@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru">
-@@include("components/head-products.html",{
+@@include("layouts/head-products.html",{
 "title":"Список товаров"})
 
 <body>
 	@@include('partials/loading.html')
 	<div class="wrapper">
-		@@include("pages/header.html")
+		@@include("partials/header.html")
 		<main class="page">
 			<div class="page__container">
 				<div class="page__content">
@@ -30,10 +30,10 @@
 				</div>
 			</div>
 			<section class="page__info block-info">
-				@@include("pages/page-info.html")
+				@@include("partials/page-info.html")
 			</section>
 		</main>
-		@@include("pages/footer.html")
+		@@include("partials/footer.html")
 	</div>
 </body>
 

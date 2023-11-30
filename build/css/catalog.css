@@ -643,7 +643,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 
 .preloader {
   background: radial-gradient(circle farthest-corner at center, #fff 0%, #457980 100%);
-  position: absolute;
+  position: fixed;
   left: 0px;
   top: 0px;
   width: 100%;

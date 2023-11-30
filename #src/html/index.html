@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru">
-@@include("components/head.html",{
+@@include("layouts/head.html",{
 "title":"Главная"})
 
 <body>
 	@@include('partials/loading.html')
 	<div class="wrapper">
-		@@include("pages/header.html")
+		@@include("partials/header.html")
 		<main class="page">
 			<div class="page__container">
 				<div class="page__content">
@@ -25,16 +25,16 @@
 				</div>
 			</div>
 			<div class="page__brands brands-slide">
-				@@include("pages/page-brands.html")
+				@@include("partials/page-brands.html")
 			</div>
 			<section class="page__text text-block">
 				@@include("pages/page-text.html")
 			</section>
 			<section class="page__info block-info">
-				@@include("pages/page-info.html")
+				@@include("partials/page-info.html")
 			</section>
 		</main>
-		@@include("pages/footer.html")
+		@@include("partials/footer.html")
 	</div>
 </body>
 

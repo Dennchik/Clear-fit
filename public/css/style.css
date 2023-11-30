@@ -663,7 +663,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 
 .preloader {
   background: radial-gradient(circle farthest-corner at center, #fff 0%, #457980 100%);
-  position: absolute;
+  position: fixed;
   left: 0px;
   top: 0px;
   width: 100%;
@@ -2939,6 +2939,7 @@ button {
 }
 
 .text-block__column {
+  font: 12px/20px Roboto;
   -webkit-user-select: text;
   -moz-user-select: text;
   -ms-user-select: text;
@@ -2948,8 +2949,7 @@ button {
   -webkit-flex: 0 1 50%;
   -ms-flex: 0 1 50%;
   flex: 0 1 50%;
-  font-family: Roboto;
-  line-height: 20px;
+  text-align: justify;
   letter-spacing: 0.025em;
 }
 
