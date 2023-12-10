@@ -61,9 +61,6 @@ const productPrices = document.querySelectorAll('.product-prices>p');
 
 productPrices.forEach(productPrice => {
 	valuePrice = parseInt(String(productPrice.textContent).replace(/ /g, ''));
-	// quantity = productPrice.closest('[data-action]').querySelector('input').value;
-
-
 });
 if (actions) {
 	actions.forEach(action => {

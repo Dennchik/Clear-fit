@@ -8,15 +8,12 @@ custom
 /.vscode
 .vscode
 node_modules
-gulpfile.js
 Applications
 Temp
 Templates
 #temp
 *#temp
 desktop.ini
-package.json
-package-lock.json
 .eslintrc.js
 # local env files
 .env.local
