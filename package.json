@@ -1,7 +1,7 @@
 {
-	"name": "gulp-start",
+	"name": "clear-fit",
 	"version": "1.1.E",
-	"description": "Сборка Gulp",
+	"description": "Clear fit",
 	"main": "index.js",
 	"tipe": "module",
 	"scripts": {
@@ -11,6 +11,10 @@
 	},
 	"author": "Dennchik",
 	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Dennchik/Clear-fit/issues"
+	},
+	"homepage": "https://github.com/Dennchik/Clear-fit#readme",
 	"babel": {
 		"presets": [
 			"@babel/preset-env"
