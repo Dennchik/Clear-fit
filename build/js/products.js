@@ -31,7 +31,7 @@ function slides_build_callback(e) {
 //todo ------------ Initialize Swiper in JS - "Product Slide" ------------------
 const contentProducts = document.querySelectorAll('.content-product');
 if (document.querySelector('.product-slide')) {
-	var swiper = new Swiper(".thumb-slide", {
+	let swiper = new Swiper(".thumb-slide", {
 		spaceBetween: 10,
 		slidesPerView: 4,
 		freeMode: true,

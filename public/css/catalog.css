@@ -4438,11 +4438,10 @@ button {
   }
 
   .top-header__logo img {
-    width: 90%;
-    min-width: 5rem;
+    min-width: 100%;
     height: 100%;
-    -o-object-fit: cover;
-    object-fit: cover;
+    -o-object-fit: contain;
+    object-fit: contain;
   }
 
   .top-header__contacts {
