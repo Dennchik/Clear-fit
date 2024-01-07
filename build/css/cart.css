@@ -191,7 +191,8 @@ a:hover {
 
 a:visited {
   vertical-align: middle;
-  -text-emphasis-style: none;
+  -webkit-text-emphasis-style: none;
+  text-emphasis-style: none;
 }
 
 input,
