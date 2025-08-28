@@ -6,96 +6,96 @@ document.querySelector('.tab-button__icon-wrapp').onclick = () => {
 	tabButton.classList.toggle('_responsive');
 };
 //* --------------------------[Quantity products]-------------------------------
-const counters = document.querySelectorAll('[data-quantity]');
-const productPrices = document.querySelectorAll('.product-prices>p');
-if (counters) {
-	counters.forEach(counter => {
-		counter.addEventListener('click', (e) => {
-			target = e.target;
-			if (target.closest('.quantity__buttom')) {
-				if (target.closest('.quantity').querySelector('input').value == '' && (target.classList.contains('quantity-remove') || target.classList.contains('quantity-add'))) {
-					target.closest('.quantity').querySelector('input').value = 0;
-				}
-				let value = parseInt(target.closest('.quantity').querySelector('input').value);
-				if (target.classList.contains('quantity-add')) {
-					value++;
-				} else {
-					--value;
-				}
-				if (value <= 1) {
-					value = 1;
-					_opacityAdd();
-				} else {
-					_opacityRemove();
-				}
+// const counters = document.querySelectorAll('[data-quantity]');
+// const productPrices = document.querySelectorAll('.product-prices>p');
+// if (counters) {
+// 	counters.forEach(counter => {
+// 		counter.addEventListener('click', (e) => {
+// 			target = e.target;
+// 			if (target.closest('.quantity__buttom')) {
+// 				if (target.closest('.quantity').querySelector('input').value == '' && (target.classList.contains('quantity-remove') || target.classList.contains('quantity-add'))) {
+// 					target.closest('.quantity').querySelector('input').value = 0;
+// 				}
+// 				let value = parseInt(target.closest('.quantity').querySelector('input').value);
+// 				if (target.classList.contains('quantity-add')) {
+// 					value++;
+// 				} else {
+// 					--value;
+// 				}
+// 				if (value <= 1) {
+// 					value = 1;
+// 					_opacityAdd();
+// 				} else {
+// 					_opacityRemove();
+// 				}
 
-				target.closest('.quantity').querySelector('input').value = value;
-			}
-			_totalSum();
-		});
-		counter.querySelector('input').addEventListener('keyup', (e) => {
-			e = e || window.e;
-			const target = e.target;
-			let value = parseInt(target.closest('.quantity').querySelector('input').value);
-			if (e.key === 'Enter') {
-				value = value;
-				if (value <= 1) {
-					value = 1;
-				}
-			} else if (e.key === 'ArrowDown') {
-				--value;
-				if (value <= 1) {
-					value = 1;
-				}
-			} else if (e.key === 'ArrowUp') {
-				value++;
-			} else if (e.key === 'ArrowLeft') {
-				--value;
-				if (value <= 1) {
-					value = 1;
-				}
-			} else if (e.key === 'ArrowRight') {
-				value++;
-			}
-			if (value <= 1) {
-				_opacityAdd();
-			} else if (value > 1) {
-				_opacityRemove();
-			}
-			value = isNaN(value) ? 1 : value;
-			target.closest('.quantity').querySelector('input').value = value;
-			_totalSum();
-			value.oninput = function () {
-				this.value = this.value.replace(/[^\d]/g, '');
-			};
-		});
-	});
-};
-function _opacityAdd() {
-	target.closest('.quantity').querySelector('.quantity-remove').classList.add('_disabled');
-}
-function _opacityRemove() {
-	target.closest('.quantity').querySelector('.quantity-remove').classList.remove('_disabled');
-}
-function _totalSum() {
-	let totalSum = 0;
-	productPrices.forEach(productPrice => {
-		const inputTotal = document.querySelector('.input-total');
-		let valuePrice = parseInt(String(productPrice.textContent).replace(/ /g, ''));
-		let quantity = productPrice.closest('.shopping-cart__item').querySelector('input').value;
+// 				target.closest('.quantity').querySelector('input').value = value;
+// 			}
+// 			_totalSum();
+// 		});
+// 		counter.querySelector('input').addEventListener('keyup', (e) => {
+// 			e = e || window.e;
+// 			const target = e.target;
+// 			let value = parseInt(target.closest('.quantity').querySelector('input').value);
+// 			if (e.key === 'Enter') {
+// 				value = value;
+// 				if (value <= 1) {
+// 					value = 1;
+// 				}
+// 			} else if (e.key === 'ArrowDown') {
+// 				--value;
+// 				if (value <= 1) {
+// 					value = 1;
+// 				}
+// 			} else if (e.key === 'ArrowUp') {
+// 				value++;
+// 			} else if (e.key === 'ArrowLeft') {
+// 				--value;
+// 				if (value <= 1) {
+// 					value = 1;
+// 				}
+// 			} else if (e.key === 'ArrowRight') {
+// 				value++;
+// 			}
+// 			if (value <= 1) {
+// 				_opacityAdd();
+// 			} else if (value > 1) {
+// 				_opacityRemove();
+// 			}
+// 			value = isNaN(value) ? 1 : value;
+// 			target.closest('.quantity').querySelector('input').value = value;
+// 			_totalSum();
+// 			value.oninput = function () {
+// 				this.value = this.value.replace(/[^\d]/g, '');
+// 			};
+// 		});
+// 	});
+// };
+// function _opacityAdd() {
+// 	target.closest('.quantity').querySelector('.quantity-remove').classList.add('_disabled');
+// }
+// function _opacityRemove() {
+// 	target.closest('.quantity').querySelector('.quantity-remove').classList.remove('_disabled');
+// }
+// function _totalSum() {
+// 	let totalSum = 0;
+// 	productPrices.forEach(productPrice => {
+// 		const inputTotal = document.querySelector('.input-total');
+// 		let valuePrice = parseInt(String(productPrice.textContent).replace(/ /g, ''));
+// 		let quantity = productPrice.closest('.shopping-cart__item').querySelector('input').value;
 
-		totalSumProduct = (valuePrice * quantity);
-		totalSum += (+totalSumProduct);
+// 		totalSumProduct = (valuePrice * quantity);
+// 		totalSum += (+totalSumProduct);
 
-		productPrice.closest('.shopping-cart__item').querySelector('.card-name__quantity-price').textContent = totalSumProduct.toLocaleString('ru-Ru', {
-			style: 'currency',
-			currency: 'RUB',
-			minimumFractionDigits: 0,
-		});
-		inputTotal.innerHTML = totalSum.toLocaleString() + `<i class="icon-ruble"></i>`;
-	});
-}
-_totalSum();
+// 		productPrice.closest('.shopping-cart__item').querySelector('.card-name__quantity-price').textContent = totalSumProduct.toLocaleString('ru-Ru', {
+// 			style: 'currency',
+// 			currency: 'RUB',
+// 			minimumFractionDigits: 0,
+// 		});
+// 		inputTotal.innerHTML = totalSum.toLocaleString() + `<i class="icon-ruble"></i>`;
+// 	});
+// }
+// _totalSum();
 //* ----------------------------[Shift-Tabs]-----------------------------------
 const tablinks = document.querySelectorAll('.tab-button__item');
 const tabcontents = document.querySelectorAll('.order-place__quick-order');
@@ -135,6 +135,7 @@ document.querySelectorAll('[data-select]').forEach(function (selectGroup) {
 			const selectButton = itsSelect.querySelector('.select__button');
 			itsSelect.addEventListener('click', function (el) {
 				target = el.target;
+				console.log(target);
 				if (target.closest('.select__button')) {
 					const opened_select = document.querySelector('._active-collapse');
 					_toggleOpen(itsSelect);
@@ -255,3 +256,94 @@ document.querySelectorAll('[data-select]').forEach(function (selectGroup) {
 		});
 	}
 });
+// -----------------------------------------------------------------------------
+
+const counters = document.querySelectorAll('[data-quantity]');
+const productPrices = document.querySelectorAll('.product-prices>p');
+if (counters) {
+	counters.forEach(counter => {
+		counter.addEventListener('click', (e) => {
+			let target = e.target;
+			if (target.closest('.quantity__buttom')) {
+				let input = target.closest('.quantity').querySelector('input');
+				let value = parseInt(input.value) || 0;
+
+				if (target.classList.contains('quantity-add')) {
+					value++;
+				} else {
+					value--;
+				}
+				if (value <= 1) {
+					value = 1;
+					_opacityAdd(input);
+				} else {
+					_opacityRemove(input);
+				}
+
+				input.value = value;
+				_totalSum();
+			}
+		});
+
+		let input = counter.querySelector('input');
+		input.addEventListener('keyup', (e) => {
+			e = e || window.e;
+			let value = parseInt(input.value) || 1;
+
+			if (e.key === 'Enter') {
+				if (value <= 1) {
+					value = 1;
+				}
+			} else if (e.key === 'ArrowDown' || e.key === 'ArrowLeft') {
+				value--;
+				if (value <= 1) {
+					value = 1;
+				}
+			} else if (e.key === 'ArrowUp' || e.key === 'ArrowRight') {
+				value++;
+			}
+
+			if (value <= 1) {
+				_opacityAdd(input);
+			} else {
+				_opacityRemove(input);
+			}
+
+			input.value = isNaN(value) ? 1 : value;
+			_totalSum();
+		});
+
+		input.addEventListener('input', function () {
+			this.value = this.value.replace(/[^\d]/g, '');
+		});
+	});
+}
+
+function _opacityAdd(input) {
+	input.closest('.quantity').querySelector('.quantity-remove').classList.add('_disabled');
+}
+
+function _opacityRemove(input) {
+	input.closest('.quantity').querySelector('.quantity-remove').classList.remove('_disabled');
+}
+
+function _totalSum() {
+	let totalSum = 0;
+	productPrices.forEach(productPrice => {
+		const inputTotal = document.querySelector('.input-total');
+		let valuePrice = parseInt(productPrice.textContent.replace(/ /g, '')) || 0;
+		let quantity = parseInt(productPrice.closest('.shopping-cart__item').querySelector('input').value) || 1;
+
+		let totalSumProduct = valuePrice * quantity;
+		totalSum += totalSumProduct;
+
+		productPrice.closest('.shopping-cart__item').querySelector('.card-name__quantity-price').textContent = totalSumProduct.toLocaleString('ru-RU', {
+			style: 'currency',
+			currency: 'RUB',
+			minimumFractionDigits: 0,
+		});
+		inputTotal.innerHTML = totalSum.toLocaleString() + `<i class="icon-ruble"></i>`;
+	});
+}
+_totalSum();
+

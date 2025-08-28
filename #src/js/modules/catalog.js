@@ -229,8 +229,10 @@ document.querySelectorAll('[data-select]').forEach(function (selectGroup) {
 			//todo Клик снаружи дропдауна. Закрыть дропдаун;
 			document.addEventListener('click', function (e) {
 				const classList = e.target.classList;
+
 				switch (true) {
 					case classList.contains('select__button'):
+						console.log(classList);
 						break;
 					case classList.contains('select__list-item'):
 						break;

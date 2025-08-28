@@ -15,6 +15,7 @@ const js = () => {
 		.pipe($.gulpIf($.app.isProd, $.gul.size({
 			title: 'До сжатия - (JavaScript):'
 		})))
+		// .pipe($.gul.babel())
 		.pipe($.gul.minify($.app.minJs))
 		.pipe($.gulpIf($.app.isProd, $.gul.size({
 			title: 'После сжатия - (JavaScript):'

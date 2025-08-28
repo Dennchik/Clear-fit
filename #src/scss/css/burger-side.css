@@ -1,0 +1,81 @@
+.menu-page._open .side-menu span:nth-child(1) {
+  -webkit-transform: scale(1.088) translateY(7px) rotate(135deg);
+          transform: scale(1.088) translateY(7px) rotate(135deg);
+}
+.menu-page._open .side-menu span:nth-child(2) {
+  -webkit-transform: translateX(-60px);
+          transform: translateX(-60px);
+  opacity: 0;
+}
+.menu-page._open .side-menu span:nth-child(3) {
+  -webkit-transform: scale(1.088) translateY(-6px) rotate(-135deg);
+          transform: scale(1.088) translateY(-6px) rotate(-135deg);
+}
+
+.side-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 36px;
+          flex: 0 0 36px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 10px 6px;
+  cursor: pointer;
+  -webkit-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
+  background-color: #068292;
+}
+.side-wrap._open .side-menu span:nth-child(1) {
+  -webkit-transform: scale(1.088) translateY(7px) rotate(135deg);
+          transform: scale(1.088) translateY(7px) rotate(135deg);
+}
+.side-wrap._open .side-menu span:nth-child(2) {
+  -webkit-transform: translateX(-60px);
+          transform: translateX(-60px);
+  opacity: 0;
+}
+.side-wrap._open .side-menu span:nth-child(3) {
+  -webkit-transform: scale(1.088) translateY(-6px) rotate(-135deg);
+          transform: scale(1.088) translateY(-6px) rotate(-135deg);
+}
+.side-wrap._open .side-menu > a {
+  background-origin: padding-box;
+}
+
+.side-menu {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.side-menu span {
+  position: absolute;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 2px;
+  -webkit-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  opacity: 1;
+  border-radius: 2px;
+  background-color: white;
+}
+.side-menu span:nth-child(1) {
+  top: 0;
+}
+.side-menu span:nth-child(2) {
+  top: 7px;
+}
+.side-menu span:nth-child(3) {
+  top: 14px;
+}/*# sourceMappingURL=burger-side.css.map */

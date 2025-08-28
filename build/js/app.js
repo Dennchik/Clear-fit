@@ -9348,3 +9348,4 @@ var isMobile = {
 		const viewport_width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 	}
 }());
+//# sourceMappingURL=app.js.map

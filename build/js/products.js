@@ -29,7 +29,7 @@ if (slides) {
 function slides_build_callback(e) {
 }
 //todo ------------ Initialize Swiper in JS - "Product Slide" ------------------
-const contentProducts = document.querySelectorAll('.content-product');
+// const contentProducts = document.querySelectorAll('.content-product');
 if (document.querySelector('.product-slide')) {
 	let swiper = new Swiper(".thumb-slide", {
 		spaceBetween: 10,
@@ -41,6 +41,7 @@ if (document.querySelector('.product-slide')) {
 		spaceBetween: 10,
 		speed: 800,
 		loop: true,
+		slidesPerView: 1,
 		navigation: {
 			prevEl: ".product-slide__prew",
 			nextEl: ".product-slide__next",
@@ -180,3 +181,4 @@ function _totalSumProduct() {
 	}
 	return _NewTotal;
 }
+//# sourceMappingURL=products.js.map
